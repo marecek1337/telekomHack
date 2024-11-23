@@ -1,0 +1,26 @@
+project_id,start_date,end_date,budget,status,team_lead,department,client_name,priority
+1,3/29/2021,4/20/2020,Krona,pending,Franciska Bryan,Human Resources,Demizz,high
+2,5/24/2022,3/6/2021,Rupiah,active,Prue Bartolozzi,Services,Zoombox,medium
+3,9/24/2021,12/15/2020,Yuan Renminbi,pending,Tildie Yushachkov,Training,Photojam,low
+4,1/1/2021,12/30/2020,Rupiah,completed,Andros Tillyer,Services,Browseblab,high
+5,2/18/2020,8/16/2022,Kuna,active,Erinna Gayden,Legal,Edgewire,medium
+6,8/13/2022,10/26/2020,Rupiah,active,Fania Masdon,Marketing,Gabtune,medium
+7,12/14/2021,10/2/2020,Euro,completed,Karlik Drewett,Sales,Shufflester,high
+8,9/14/2021,1/2/2022,Dollar,completed,Leanora Camoys,Human Resources,Yodoo,low
+9,5/5/2020,7/28/2020,Hryvnia,active,Pamelina McGillicuddy,Support,Fivechat,low
+10,1/2/2022,6/8/2021,Peso,completed,Kristen Saward,Human Resources,Youbridge,low
+11,8/4/2021,11/1/2021,Ruble,completed,Nerti MacIlory,Services,Wordware,medium
+12,12/27/2021,7/25/2020,Euro,pending,Adrian Verty,Marketing,Dabjam,high
+13,6/16/2021,11/18/2021,Euro,pending,Neala Fearneley,Product Management,Eimbee,medium
+14,7/2/2020,7/28/2020,Ruble,pending,Fawnia Donaghie,Marketing,Meevee,low
+15,1/13/2022,12/9/2021,Yuan Renminbi,active,Bernardina Bearman,Support,Livetube,low
+16,5/9/2021,12/12/2022,Yuan Renminbi,pending,Anabel Flay,Business Development,Fadeo,medium
+17,3/1/2022,1/31/2022,Ruble,pending,Callida Darington,Legal,Devpulse,high
+18,5/11/2022,9/6/2020,Sol,pending,Ardelle Ruddin,Business Development,Topicstorm,high
+19,8/12/2020,6/30/2021,Koruna,pending,Milka Surmeyers,Sales,Shuffledrive,low
+20,1/21/2021,2/4/2020,Yuan Renminbi,completed,Bertrand Pedycan,Engineering,Oyonder,medium
+21,10/6/2020,10/13/2022,Euro,active,Selestina Couves,Legal,Mydeo,low
+22,1/28/2020,3/18/2021,Yuan Renminbi,pending,Abel Domanski,Human Resources,Roodel,medium
+23,1/6/2021,1/1/2022,Shekel,completed,Eal Braine,Human Resources,Katz,high
+24,9/1/2020,6/3/2022,Real,completed,Reid Thorold,Accounting,Feednation,low
+25,1/21/2020,4/16/2021,Real,completed,Seana Pollastro,Marketing,Kamba,high

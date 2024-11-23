@@ -1,0 +1,101 @@
+serial_number,model,processor,ram_size,storage_capacity,screen_size,operating_system,price,purchase_date,warranty_status
+1,ProBook,Intel Core i7,13,1287,16.9,Chrome OS,1798.87,6/6/2021,false
+2,EliteBook,AMD Ryzen 5,17,1925,16.8,Chrome OS,887.86,11/13/2020,false
+3,EliteBook,Intel Core i7,21,1281,13.8,Chrome OS,1083.67,1/5/2019,true
+4,Pavilion,AMD Ryzen 5,31,1250,13.4,macOS,1856.88,1/27/2019,true
+5,Pavilion,Intel Core i5,11,1331,14.9,Windows 10,652.97,6/30/2020,false
+6,Pavilion,Intel Core i7,7,765,15.8,Windows 10,1124.31,7/23/2020,true
+7,ProBook,AMD Ryzen 5,22,1135,16.9,macOS,1707.31,6/19/2019,true
+8,ProBook,Intel Core i5,8,827,14.9,Chrome OS,1771.23,10/10/2021,true
+9,ProBook,Intel Core i7,28,1033,13.2,Windows 10,1704.22,10/26/2019,true
+10,EliteBook,Intel Core i5,21,1395,13.4,Chrome OS,1563.94,12/4/2021,true
+11,ProBook,Intel Core i5,19,1639,13.4,Windows 10,949.36,6/13/2019,false
+12,Pavilion,AMD Ryzen 5,25,667,14.9,Windows 10,1541.36,3/4/2019,true
+13,Pavilion,AMD Ryzen 5,16,1903,13.5,Chrome OS,856.54,8/18/2019,false
+14,EliteBook,AMD Ryzen 5,9,1130,14.0,macOS,1413.51,12/4/2020,true
+15,Pavilion,AMD Ryzen 5,9,1842,16.2,Chrome OS,1805.58,7/30/2021,true
+16,Pavilion,Intel Core i7,21,1974,14.9,macOS,1478.19,7/8/2021,false
+17,EliteBook,Intel Core i5,15,1225,13.9,Windows 10,1573.45,5/1/2019,false
+18,Pavilion,AMD Ryzen 5,32,717,14.6,macOS,784.8,5/24/2019,true
+19,Pavilion,Intel Core i5,16,836,14.6,macOS,1694.51,5/16/2019,true
+20,ProBook,AMD Ryzen 5,31,1031,15.7,Chrome OS,1739.83,3/12/2020,true
+21,EliteBook,AMD Ryzen 5,18,2026,13.1,macOS,1038.25,10/19/2020,true
+22,EliteBook,Intel Core i5,20,429,13.8,Chrome OS,729.37,5/8/2019,true
+23,EliteBook,Intel Core i7,10,548,14.4,Windows 10,703.36,11/2/2021,true
+24,Pavilion,Intel Core i7,16,284,16.3,macOS,1469.8,7/29/2021,true
+25,Pavilion,AMD Ryzen 5,16,904,15.7,Chrome OS,1402.33,9/24/2020,false
+26,ProBook,Intel Core i5,29,1040,13.7,macOS,1244.76,7/28/2019,true
+27,Pavilion,Intel Core i7,14,1484,16.5,macOS,1764.17,3/6/2021,false
+28,EliteBook,Intel Core i7,25,1094,17.0,Chrome OS,620.92,9/13/2020,false
+29,ProBook,Intel Core i7,21,429,15.6,macOS,528.0,6/8/2019,true
+30,EliteBook,Intel Core i7,13,1919,16.6,Chrome OS,1367.71,9/27/2020,true
+31,EliteBook,AMD Ryzen 5,16,663,13.9,Chrome OS,807.19,12/1/2020,true
+32,Pavilion,Intel Core i7,12,1028,15.9,Chrome OS,1014.52,4/26/2019,false
+33,EliteBook,Intel Core i5,15,1806,14.1,macOS,1062.05,10/18/2019,false
+34,Pavilion,Intel Core i7,27,1027,16.6,Chrome OS,596.59,5/12/2021,true
+35,EliteBook,AMD Ryzen 5,6,640,13.5,macOS,657.99,11/16/2020,true
+36,EliteBook,Intel Core i7,19,854,15.0,Chrome OS,1480.37,11/7/2021,true
+37,EliteBook,Intel Core i5,4,1719,16.9,Chrome OS,872.81,10/13/2019,false
+38,ProBook,Intel Core i7,23,716,14.7,Windows 10,1265.21,12/27/2020,false
+39,EliteBook,Intel Core i5,22,1807,13.7,Chrome OS,1339.46,4/8/2019,true
+40,Pavilion,Intel Core i5,15,2005,15.1,Chrome OS,1995.4,12/2/2021,true
+41,Pavilion,Intel Core i7,18,1914,14.0,Windows 10,510.72,4/3/2020,true
+42,EliteBook,Intel Core i7,18,2038,14.0,Windows 10,933.37,9/24/2021,true
+43,Pavilion,Intel Core i7,29,2001,14.5,Windows 10,1088.75,10/21/2019,false
+44,EliteBook,Intel Core i5,25,1717,15.4,Windows 10,1805.28,7/8/2020,false
+45,EliteBook,Intel Core i5,8,1712,15.8,macOS,778.0,11/25/2021,true
+46,ProBook,Intel Core i5,16,1561,13.0,macOS,1537.09,1/14/2019,false
+47,ProBook,Intel Core i5,11,949,16.1,Chrome OS,1068.16,10/1/2019,false
+48,ProBook,Intel Core i7,27,1550,16.8,Chrome OS,1662.43,7/6/2019,false
+49,ProBook,Intel Core i5,8,919,13.8,Windows 10,684.31,10/15/2019,false
+50,Pavilion,Intel Core i7,29,1999,13.8,Windows 10,1636.74,11/22/2020,false
+51,Pavilion,Intel Core i7,16,1510,13.9,Chrome OS,1453.92,5/22/2019,false
+52,Pavilion,Intel Core i7,28,1178,14.1,macOS,813.92,4/27/2021,false
+53,Pavilion,Intel Core i5,15,1364,14.5,macOS,1133.89,11/12/2020,true
+54,Pavilion,Intel Core i7,7,453,14.2,Windows 10,539.57,12/19/2020,false
+55,EliteBook,Intel Core i7,29,1541,15.6,macOS,610.17,12/19/2021,false
+56,Pavilion,Intel Core i5,29,603,13.4,Chrome OS,690.25,12/20/2020,false
+57,Pavilion,Intel Core i7,16,267,15.0,Chrome OS,1896.64,7/31/2021,false
+58,ProBook,AMD Ryzen 5,8,1105,15.8,Windows 10,903.95,11/16/2021,true
+59,ProBook,Intel Core i5,7,688,15.6,Chrome OS,1488.64,10/16/2020,false
+60,ProBook,Intel Core i5,21,1553,13.9,macOS,1163.41,3/14/2019,false
+61,EliteBook,Intel Core i5,15,1228,14.7,Windows 10,1869.8,12/5/2021,false
+62,Pavilion,Intel Core i7,22,828,14.2,Chrome OS,1977.54,11/15/2019,true
+63,ProBook,Intel Core i7,32,1756,16.8,macOS,647.56,9/22/2021,false
+64,EliteBook,AMD Ryzen 5,22,1433,16.8,Chrome OS,1958.42,5/14/2019,true
+65,EliteBook,AMD Ryzen 5,26,1257,15.1,macOS,1663.54,3/29/2019,false
+66,EliteBook,Intel Core i7,10,1659,13.9,macOS,1606.9,12/17/2021,true
+67,EliteBook,Intel Core i7,19,2003,16.5,Windows 10,835.78,9/5/2019,true
+68,Pavilion,AMD Ryzen 5,15,1335,14.5,Windows 10,827.85,7/28/2019,false
+69,ProBook,Intel Core i7,14,1861,14.7,Windows 10,877.22,9/6/2019,false
+70,Pavilion,AMD Ryzen 5,18,984,15.3,macOS,1889.8,11/10/2020,true
+71,Pavilion,AMD Ryzen 5,28,2009,14.1,Chrome OS,722.01,12/20/2021,true
+72,Pavilion,Intel Core i5,32,260,16.2,Chrome OS,846.92,6/12/2020,true
+73,EliteBook,Intel Core i7,11,577,13.3,macOS,939.95,4/15/2021,false
+74,EliteBook,Intel Core i7,13,1270,13.6,Chrome OS,1824.06,11/23/2021,false
+75,ProBook,Intel Core i5,8,921,13.6,Windows 10,1696.31,6/11/2021,true
+76,EliteBook,Intel Core i7,10,401,14.6,Windows 10,1015.18,8/13/2020,true
+77,EliteBook,Intel Core i7,26,871,16.3,Chrome OS,1240.06,10/17/2020,false
+78,Pavilion,AMD Ryzen 5,9,1687,15.0,Chrome OS,1121.97,12/7/2020,true
+79,ProBook,Intel Core i7,28,1092,14.7,Chrome OS,1116.68,12/14/2021,false
+80,EliteBook,Intel Core i5,14,662,13.3,macOS,675.03,7/17/2021,true
+81,ProBook,AMD Ryzen 5,7,791,16.5,Windows 10,1765.67,7/11/2020,true
+82,EliteBook,Intel Core i7,13,1038,13.9,Chrome OS,1913.09,6/10/2020,true
+83,ProBook,AMD Ryzen 5,14,824,15.1,Chrome OS,1991.99,11/18/2019,false
+84,ProBook,AMD Ryzen 5,14,1297,16.3,Chrome OS,1813.43,1/5/2019,true
+85,ProBook,Intel Core i5,13,1489,15.2,macOS,1243.17,11/30/2021,true
+86,ProBook,AMD Ryzen 5,29,843,15.3,Windows 10,1648.99,12/31/2020,true
+87,ProBook,Intel Core i7,11,1505,15.5,Windows 10,1916.41,8/27/2019,true
+88,EliteBook,AMD Ryzen 5,13,844,16.1,macOS,1718.49,6/19/2019,false
+89,Pavilion,Intel Core i7,10,1621,14.0,Windows 10,1150.89,6/19/2021,false
+90,ProBook,Intel Core i5,19,1277,15.2,macOS,1577.17,11/7/2019,true
+91,ProBook,Intel Core i7,9,1466,16.3,Windows 10,1005.64,9/30/2020,true
+92,ProBook,Intel Core i7,14,1560,15.3,Windows 10,1210.28,10/30/2021,true
+93,Pavilion,Intel Core i5,11,1665,14.3,Chrome OS,979.04,2/20/2020,false
+94,ProBook,AMD Ryzen 5,22,1766,13.3,macOS,1482.87,9/8/2020,false
+95,ProBook,AMD Ryzen 5,28,1614,16.1,Chrome OS,1579.3,4/30/2021,true
+96,ProBook,AMD Ryzen 5,18,1454,13.4,Windows 10,1174.59,12/19/2021,true
+97,EliteBook,Intel Core i7,25,919,15.0,Windows 10,519.15,2/25/2019,true
+98,EliteBook,Intel Core i5,19,1569,15.0,macOS,1768.37,5/26/2020,true
+99,Pavilion,Intel Core i7,24,1885,14.3,Windows 10,785.72,7/6/2020,true
+100,Pavilion,Intel Core i5,8,1552,14.5,Chrome OS,1459.81,9/29/2021,true

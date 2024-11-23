@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Define the DATA folder
+CURRENT_FOLDER=$(pwd)
+DATA="$CURRENT_FOLDER/data"
+
+# Create directories
+mkdir -p $DATA/notebooks
+mkdir -p $DATA/pcs/desktop
+mkdir -p $DATA/pcs/laptops
+mkdir -p $DATA/hardware
+mkdir -p $DATA/software
+mkdir -p $DATA/people/employees
+mkdir -p $DATA/people/contractors
+mkdir -p $DATA/projects/active
+mkdir -p $DATA/projects/archived
+mkdir -p $DATA/management
+mkdir -p $DATA/hr
+
+# Create empty CSV files for notebooks
+touch $DATA/notebooks/dell.csv
+touch $DATA/notebooks/hp.csv
+touch $DATA/notebooks/lenovo.csv
+
+# Create empty CSV files for pcs
+touch $DATA/pcs/desktop/dell.csv
+touch $DATA/pcs/desktop/hp.csv
+touch $DATA/pcs/laptops/macbook.csv
+touch $DATA/pcs/laptops/surface.csv
+
+# Create empty CSV files for hardware
+touch $DATA/hardware/processors.csv
+touch $DATA/hardware/memory.csv
+touch $DATA/hardware/storage.csv
+
+# Create empty CSV files for software
+touch $DATA/software/operating_systems.csv
+touch $DATA/software/applications.csv
+touch $DATA/software/licenses.csv
+
+# Create empty CSV files for people
+touch $DATA/people/employees/hr.csv
+touch $DATA/people/employees/engineering.csv
+touch $DATA/people/employees/sales.csv
+touch $DATA/people/contractors/it.csv
+touch $DATA/people/contractors/marketing.csv
+
+# Create empty CSV files for projects
+touch $DATA/projects/active/project_alpha.csv
+touch $DATA/projects/active/project_beta.csv
+touch $DATA/projects/archived/project_omega.csv
+touch $DATA/projects/archived/project_zeta.csv
+
+# Create empty CSV files for management
+touch $DATA/management/policies.csv
+touch $DATA/management/reports.csv
+touch $DATA/management/meetings.csv
+
+# Create empty CSV files for hr
+touch $DATA/hr/payroll.csv
+touch $DATA/hr/benefits.csv
+touch $DATA/hr/recruitment.csv
+
+echo "Extended folder structure created successfully!"

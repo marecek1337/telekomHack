@@ -1,0 +1,101 @@
+serial_number,brand,model,processor,ram_size,storage_capacity,screen_size,operating_system,purchase_date,price
+1,Lenovo,MacBook Pro,Intel Core i7,7,1881,13.1,Chrome OS,10/10/2014,533.71
+2,Lenovo,MacBook Pro,AMD Ryzen 7,25,1622,14.7,macOS Big Sur,9/27/2020,2499.49
+3,Apple,MacBook Air,AMD Ryzen 7,5,433,15.8,Ubuntu 20.04,7/11/2012,2228.52
+4,HP,MacBook Air,Intel Core i7,5,1074,16.6,macOS Big Sur,4/2/2012,2066.03
+5,Lenovo,MacBook Pro,Intel Core i7,27,1852,16.0,Chrome OS,2/8/2013,586.43
+6,HP,MacBook Air,Apple M1,22,243,14.2,Windows 10,11/23/2011,2624.81
+7,Dell,MacBook Air,Intel Core i5,12,1745,14.5,Chrome OS,6/20/2014,2806.5
+8,Dell,ThinkPad X1 Carbon,Apple M1,14,1409,13.2,Ubuntu 20.04,10/14/2020,4867.63
+9,Lenovo,MacBook Air,Intel Core i7,28,1500,13.5,macOS Big Sur,4/22/2012,739.14
+10,Lenovo,MacBook Air,AMD Ryzen 7,6,1395,13.2,Chrome OS,2/29/2016,4631.78
+11,HP,MacBook Pro,Intel Core i5,29,660,14.4,Windows 10,9/15/2021,3410.96
+12,Lenovo,XPS 13,Intel Core i7,12,1282,15.6,macOS Big Sur,6/9/2012,1201.78
+13,Lenovo,MacBook Air,Intel Core i5,6,1827,13.7,Windows 10,2/16/2011,2153.69
+14,Dell,ThinkPad X1 Carbon,Apple M1,25,804,14.4,Chrome OS,12/30/2014,892.34
+15,Lenovo,MacBook Pro,Intel Core i7,26,1432,13.2,Windows 10,5/14/2022,3157.05
+16,HP,MacBook Pro,AMD Ryzen 7,5,1893,15.4,Ubuntu 20.04,6/11/2015,1618.99
+17,HP,XPS 13,Apple M1,7,1674,14.1,Ubuntu 20.04,5/22/2022,2394.7
+18,HP,ThinkPad X1 Carbon,Intel Core i5,26,721,13.2,Chrome OS,12/26/2021,3582.47
+19,HP,MacBook Pro,Intel Core i7,24,633,16.7,macOS Big Sur,12/3/2019,811.91
+20,Apple,MacBook Pro,AMD Ryzen 7,6,797,15.4,Chrome OS,11/13/2014,1243.94
+21,HP,ThinkPad X1 Carbon,AMD Ryzen 7,14,1823,13.6,Windows 10,11/2/2012,2039.35
+22,Lenovo,XPS 13,Intel Core i5,15,1698,14.3,Ubuntu 20.04,3/13/2018,551.62
+23,Apple,XPS 13,AMD Ryzen 7,15,287,16.8,Ubuntu 20.04,1/8/2010,4306.35
+24,Dell,XPS 13,Intel Core i5,17,463,15.0,Ubuntu 20.04,1/6/2016,2661.8
+25,Apple,MacBook Pro,Intel Core i5,31,1710,15.2,macOS Big Sur,2/10/2016,2674.19
+26,Apple,MacBook Pro,Intel Core i5,7,323,14.1,Ubuntu 20.04,12/21/2016,4789.38
+27,Dell,XPS 13,Intel Core i7,30,749,15.7,macOS Big Sur,3/18/2021,3555.73
+28,Lenovo,ThinkPad X1 Carbon,Intel Core i7,20,1711,13.1,Windows 10,5/4/2022,4970.14
+29,Dell,MacBook Pro,Intel Core i7,9,736,13.8,Windows 10,8/18/2020,1273.23
+30,Apple,XPS 13,Intel Core i7,15,1490,13.9,Windows 10,4/4/2022,3882.42
+31,Lenovo,ThinkPad X1 Carbon,AMD Ryzen 7,19,1265,13.1,Chrome OS,4/23/2016,2397.22
+32,Apple,XPS 13,Intel Core i7,22,1644,15.2,Windows 10,9/13/2018,1837.17
+33,Apple,MacBook Air,Intel Core i7,23,1465,13.7,macOS Big Sur,9/20/2013,511.78
+34,Lenovo,ThinkPad X1 Carbon,Apple M1,17,1600,16.0,macOS Big Sur,7/30/2019,1661.01
+35,Apple,MacBook Air,Intel Core i5,6,2042,16.1,macOS Big Sur,5/31/2014,4165.17
+36,Apple,ThinkPad X1 Carbon,Apple M1,32,577,16.2,macOS Big Sur,8/5/2016,2259.7
+37,Lenovo,XPS 13,Apple M1,23,188,13.6,Chrome OS,9/30/2021,819.78
+38,Lenovo,MacBook Air,Apple M1,28,874,13.3,Windows 10,4/3/2021,2644.31
+39,Lenovo,ThinkPad X1 Carbon,AMD Ryzen 7,22,500,14.2,Chrome OS,11/14/2020,2937.18
+40,Apple,MacBook Pro,Apple M1,8,2039,14.9,Ubuntu 20.04,2/12/2019,2721.58
+41,Dell,MacBook Air,Apple M1,25,432,16.5,Windows 10,1/22/2018,4469.77
+42,HP,ThinkPad X1 Carbon,AMD Ryzen 7,7,442,14.8,Chrome OS,9/7/2010,4699.32
+43,Apple,MacBook Air,Apple M1,19,1335,16.4,Ubuntu 20.04,6/18/2016,1016.67
+44,Apple,XPS 13,Intel Core i5,24,1909,15.9,macOS Big Sur,8/23/2022,4320.94
+45,Lenovo,MacBook Pro,Intel Core i7,11,1225,13.5,Windows 10,1/4/2016,3930.72
+46,Apple,ThinkPad X1 Carbon,Intel Core i5,7,1254,14.5,Ubuntu 20.04,8/24/2010,2436.91
+47,Apple,MacBook Pro,AMD Ryzen 7,27,516,14.1,Chrome OS,4/7/2010,682.32
+48,Apple,MacBook Pro,AMD Ryzen 7,20,1931,13.8,Ubuntu 20.04,2/14/2018,2033.2
+49,HP,MacBook Air,Intel Core i7,28,1240,13.6,macOS Big Sur,11/18/2013,4345.0
+50,Apple,MacBook Pro,Intel Core i5,20,1452,15.0,macOS Big Sur,2/17/2017,4199.25
+51,Dell,MacBook Air,Intel Core i5,26,1718,14.6,macOS Big Sur,4/2/2021,737.28
+52,Dell,XPS 13,Intel Core i5,20,1924,13.5,Chrome OS,10/30/2016,737.01
+53,Lenovo,MacBook Pro,AMD Ryzen 7,28,151,14.6,Windows 10,7/14/2011,965.15
+54,Dell,MacBook Pro,Intel Core i5,4,598,16.8,Chrome OS,12/28/2017,571.7
+55,HP,MacBook Pro,AMD Ryzen 7,9,1013,13.5,Ubuntu 20.04,8/5/2013,4971.08
+56,Apple,MacBook Air,Apple M1,14,144,13.6,Chrome OS,3/1/2022,4582.84
+57,Apple,XPS 13,Intel Core i5,16,369,15.6,Chrome OS,10/23/2019,2832.5
+58,Apple,XPS 13,Apple M1,24,385,13.9,Chrome OS,6/4/2018,3477.76
+59,HP,XPS 13,AMD Ryzen 7,14,755,16.2,Chrome OS,7/22/2022,679.96
+60,Lenovo,ThinkPad X1 Carbon,Intel Core i7,18,1425,14.4,Ubuntu 20.04,9/15/2017,4051.82
+61,Dell,ThinkPad X1 Carbon,Apple M1,14,950,15.0,macOS Big Sur,9/3/2016,2603.31
+62,HP,ThinkPad X1 Carbon,Intel Core i5,23,1525,17.0,macOS Big Sur,4/1/2010,2467.05
+63,Dell,MacBook Air,Intel Core i5,25,651,13.8,Ubuntu 20.04,5/7/2022,4708.44
+64,Apple,MacBook Pro,Intel Core i5,14,238,16.1,Chrome OS,6/11/2015,1514.59
+65,HP,MacBook Pro,Intel Core i7,14,780,14.6,Chrome OS,4/5/2017,3775.79
+66,Apple,MacBook Pro,Apple M1,31,1208,16.2,Windows 10,9/22/2013,1195.38
+67,Dell,ThinkPad X1 Carbon,Intel Core i5,32,903,15.5,macOS Big Sur,9/13/2019,4341.76
+68,Dell,MacBook Air,Intel Core i7,9,1548,14.8,Windows 10,8/10/2022,1448.4
+69,HP,MacBook Pro,Apple M1,17,1684,15.6,Windows 10,1/31/2010,1386.99
+70,Apple,ThinkPad X1 Carbon,Intel Core i7,7,1271,16.2,macOS Big Sur,3/1/2016,1283.13
+71,Dell,MacBook Air,Intel Core i5,21,1202,13.5,macOS Big Sur,4/9/2020,2562.58
+72,Lenovo,ThinkPad X1 Carbon,AMD Ryzen 7,6,1738,15.8,Windows 10,8/17/2018,1583.01
+73,Apple,MacBook Air,AMD Ryzen 7,30,927,16.1,Ubuntu 20.04,2/18/2010,2050.01
+74,Dell,MacBook Air,Apple M1,20,1707,15.5,macOS Big Sur,8/28/2011,4120.04
+75,Dell,MacBook Pro,Apple M1,32,1023,13.3,macOS Big Sur,10/22/2010,4442.52
+76,Dell,ThinkPad X1 Carbon,Apple M1,14,1571,13.9,macOS Big Sur,6/1/2015,1478.63
+77,HP,MacBook Air,Intel Core i7,24,1872,14.5,Chrome OS,12/8/2018,2111.37
+78,Lenovo,XPS 13,AMD Ryzen 7,12,241,13.0,macOS Big Sur,7/23/2015,2023.55
+79,HP,MacBook Air,Intel Core i5,17,1319,14.1,macOS Big Sur,6/29/2011,1329.26
+80,Dell,ThinkPad X1 Carbon,AMD Ryzen 7,28,1507,13.9,macOS Big Sur,7/28/2010,4133.66
+81,HP,MacBook Pro,Intel Core i5,23,902,15.8,Chrome OS,6/25/2022,1120.83
+82,Apple,ThinkPad X1 Carbon,AMD Ryzen 7,19,2005,15.9,Chrome OS,3/23/2016,2815.25
+83,Lenovo,XPS 13,Intel Core i7,24,1189,15.7,Windows 10,1/26/2016,3052.51
+84,Lenovo,MacBook Air,AMD Ryzen 7,26,432,15.7,Ubuntu 20.04,10/21/2011,605.86
+85,Dell,XPS 13,Intel Core i5,10,1087,13.7,Ubuntu 20.04,12/25/2010,1812.46
+86,Apple,MacBook Air,Intel Core i7,26,843,16.0,Chrome OS,7/14/2010,2879.45
+87,Apple,MacBook Air,Intel Core i5,20,1142,15.5,macOS Big Sur,5/20/2019,4819.42
+88,Apple,MacBook Pro,Apple M1,13,568,16.3,macOS Big Sur,3/11/2021,3951.71
+89,Apple,ThinkPad X1 Carbon,Intel Core i7,17,1309,15.9,Ubuntu 20.04,3/8/2012,3109.24
+90,Dell,ThinkPad X1 Carbon,AMD Ryzen 7,9,1727,14.4,Windows 10,11/27/2022,3450.01
+91,Lenovo,MacBook Air,Intel Core i7,6,1190,13.2,Ubuntu 20.04,5/26/2011,2753.54
+92,Dell,MacBook Air,Intel Core i7,14,1093,14.1,Ubuntu 20.04,12/3/2022,1431.46
+93,Apple,MacBook Pro,Apple M1,16,672,14.5,Ubuntu 20.04,3/20/2010,1554.07
+94,Lenovo,ThinkPad X1 Carbon,Intel Core i5,20,792,16.5,Ubuntu 20.04,1/6/2011,3692.09
+95,Apple,MacBook Air,Intel Core i5,16,1955,14.8,Chrome OS,12/15/2016,4542.71
+96,Lenovo,MacBook Air,Intel Core i7,20,198,14.8,Windows 10,1/26/2017,4081.73
+97,Dell,XPS 13,Intel Core i5,12,800,13.2,Ubuntu 20.04,10/3/2019,3651.95
+98,Dell,MacBook Air,AMD Ryzen 7,25,1415,14.7,Ubuntu 20.04,8/14/2013,3976.29
+99,Lenovo,XPS 13,Apple M1,8,446,14.4,macOS Big Sur,11/1/2013,3260.44
+100,HP,ThinkPad X1 Carbon,Intel Core i7,5,600,13.7,Ubuntu 20.04,6/10/2020,4058.23
