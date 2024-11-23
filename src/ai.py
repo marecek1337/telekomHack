@@ -17,7 +17,7 @@ def ask(str):
             {"role": "user", "content": str}
         ]
     )
-    print(completion.choices[0].message)
+    return completion.choices[0].message.content
 
 
 # ask(input("Ask smth: "))
