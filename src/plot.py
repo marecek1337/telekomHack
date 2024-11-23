@@ -47,7 +47,7 @@ def _install_dependencies(code):
     standard_libraries = {
         'os', 'sys', 're', 'math', 'datetime', 'json', 'logging', 
         'subprocess', 'pathlib', 'collections', 'itertools', 'threading',
-        'queue', 'random', 'statistics', 'functools'
+        'queue', 'random', 'statistics', 'functools', 'MinMaxScaler'
     }
     
     # Match import statements
