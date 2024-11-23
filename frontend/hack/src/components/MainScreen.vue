@@ -64,7 +64,7 @@ export default {
         const data = response.data;
 
         // Prenesieme dáta do ReportPage cez router query parametre
-        this.$router.push({ path: '/report', query: { data: JSON.stringify(data) } });
+        this.$router.push({ path: '/loading', query: { data: JSON.stringify(data) } });
       } catch (error) {
         console.error('Chyba pri načítaní dát:', error);
       }

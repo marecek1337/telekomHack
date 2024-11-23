@@ -3,6 +3,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainScreen from '@/components/MainScreen.vue';
 import ReportPage from '@/components/ReportPage.vue';
+import LoadingPage from "@/components/LoadingPage";
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     path: '/report',
     name: 'Report',
     component: ReportPage,
+  },
+  {
+    path: "/loading",
+    name: "LoadingPage",
+    component: LoadingPage,
   },
 ];
 
