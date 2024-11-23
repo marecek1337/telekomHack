@@ -24,8 +24,8 @@
       <div class="content">
         <!-- Ľavý panel -->
         <div class="left-panel">
-          <h2>Detaily reportu</h2>
-          <p>{{ textContent }}</p>
+          <h2>Informácie</h2>
+          <p>{{ infoContent }}</p>
         </div>
   
         <!-- Pravý panel -->
@@ -47,54 +47,50 @@
     name: "ReportPage",
     data() {
       return {
-        textContent: "",
+        infoContent: "", // Na dynamické načítanie informácií z API
         selectedOption: "",
       };
     },
     methods: {
-      fetchData() {
-        // Simulácia načítania textu z endpointu
+      fetchInfo() {
+        // Načítanie informácií z API
         axios
-          .get("https://baconipsum.com/api/?type=meat-and-filler")
+          .get("http://localhost:8000/get-info/") // API endpoint pre informácie
           .then((response) => {
-            this.textContent = response.data[0];
+            this.infoContent = response.data.message; // Predpokladá, že API vracia { "message": "text" }
           })
           .catch((error) => {
-            console.error("Chyba pri načítaní textu:", error);
-            this.textContent = "Nastala chyba pri načítaní údajov.";
+            console.error("Chyba pri načítaní informácií:", error);
+            this.infoContent = "Nepodarilo sa načítať informácie.";
           });
-  
-        // Simulácia načítania dát pre graf
-        this.renderChart();
       },
       renderChart() {
-        const ctx = document.getElementById("myChart").getContext("2d");
-        new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: ["Január", "Február", "Marec", "Apríl", "Máj", "Jún"],
-            datasets: [
-              {
-                label: "Ukážkové dáta",
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: "rgba(219, 0, 123, 0.5)", // Magenta Telekom s 50% priehľadnosťou
-                borderColor: "rgba(219, 0, 123, 1)", // Magenta Telekom
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-          },
-        });
-      },
+  // Načítanie JavaScriptového kódu na generovanie grafu z API
+  axios
+    .get("http://localhost:8000/get-chart/") // API endpoint pre graf
+    .then((response) => {
+      const chartCode = response.data.chart_code;
+
+      // Vytvorenie datasetu pre graf z JSON kódu
+      const script = new Function("Chart", "document", chartCode);
+
+      // Volanie funkcie s Chart.js a canvas elementom
+      script(Chart, document);
+    })
+    .catch((error) => {
+      console.error("Chyba pri generovaní grafu:", error);
+    });
+}
+,
+      
       handleButtonClick() {
         // Spracovanie kliknutia na tlačidlo
         alert("Tlačidlo bolo kliknuté!");
       },
     },
     mounted() {
-      this.fetchData();
+      this.fetchInfo(); // Načítanie informácií pri načítaní komponentu
+      this.renderChart(); // Vykreslenie grafu pri načítaní komponentu
     },
   };
   </script>
