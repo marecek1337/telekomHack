@@ -1,0 +1,15 @@
+
+We made this graph because it shows the salary distribution for Data Scientists, illustrating potential salary ranges and skewness.
+File: distribution_data_scientist_salaries.png
+
+We use this graph because it displays the variability in salaries among different experience levels, helping to understand salary increments.
+File: box_experience_level_data_scientist.png
+
+We use this graph because it demonstrates how remote work ratio influences salary levels, indicating potential value of in-office or remote work.
+File: average_salary_remote_ratio_data_scientist.png
+
+We made this graph because it provides insights into geographical salary variations for Data Scientists based on employee residence.
+File: salaries_by_employee_residence_data_scientist.png
+
+We made this graph because it illustrates salary variations by company location, hinting at regional market differences.
+File: salaries_by_company_location_data_scientist.png
