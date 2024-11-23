@@ -1,9 +1,8 @@
-from plot import plot
 import os, re, sys, subprocess, pandas as pd, shutil
 from openai import OpenAI
-
-client = OpenAI()
-
+api_key = ""
+client = OpenAI(api_key=api_key)
+print(f"Using API Key: {client.api_key}")
 # def get_key():
 #     try:
 #         with open("config.json", 'r') as file:
@@ -68,14 +67,14 @@ def generate_graphs(file_path, given_prompt):
 def ask(str, file_path=None):
     '''
     ask gpt a question
-    specify the file so gpt will craft a code to plot a graph using python
+    specify the file so gpt will craft a code to plot a graph
     '''
     if file_path:
         try:
             with open(file_path, "r") as file:
                 file_content = file.read()
                 # Append file content
-                str += f"\n\nHere is the content of the file:\n{file_content}"
+                str += f"\n{file_content}"
         except:
             pass
     
@@ -171,22 +170,72 @@ def delete_folder(folder_path):
     except Exception as e:
         print(f"Error deleting folder {folder_path}: {e}")
 
+def _generate_code_to_plot(u_input, path):
+    # Get the absolute path to the parent folder of 'src'
+    base_dir = os.path.dirname(os.path.dirname(__file__))  # Parent directory of 'src'
+    
+    # Construct the full path to the 'data' folder
+    data_folder = os.path.join(base_dir, "data")
+    full_path = os.path.join(data_folder, path)  # Full path to the data file
+    print(full_path)
+    
+    try:
+        # Read a preview of the data
+        data_preview = pd.read_csv(full_path).head().to_string(index=False)
+    except FileNotFoundError:
+        return f"Error: The file at {full_path} was not found."
+    except Exception as e:
+        return f"Error reading the file: {str(e)}"
+
+    # Construct the prompt
+    
+    prompt = (
+        f"Generate code in javascript to plot a graph. "
+        f"First **Return ONLY javascript code** without any explanation, comments, or extra text. Ensure the code is ready to execute as is."
+        f"file with data for the graph is located here {full_path}. "
+        f"Plot the data based on this text: '{u_input}'.\n\n"
+        f"Here is a preview of the data:\n{data_preview}"
+    )
+    code = ask(prompt, full_path)
+    return code    
+
+def _sanitize_response(response):
+    """
+    Extracts Python code blocks from the given response text.
+    """
+    # Match text inside triple backticks ```python ... ```
+    code_blocks = re.findall(r"```javascript(.*?)```", response, re.DOTALL)
+    if code_blocks:
+        # Return the first code block found (assuming only one block is needed)
+        return code_blocks[0].strip()
+    else:
+        print("No Python code block found in the response.")
+        return None
+
 def execute(u_input):
     # u_input = input("> ")
     # path to get file from
-    try:
-        delete_folder("graphs")
-    except:
-        pass
+    # try:
+    #     delete_folder("graphs")
+    # except:
+    #     pass
 
-    path ="data/" + get_path(u_input)
+    path = get_path(u_input)
 
     if not path:
         print("File with similar name not found")
 
+    code = _generate_code_to_plot(u_input, path)
+    try:
+        code = _sanitize_response(code)
+    except:
+        pass
+
+    print(code)
+    return code
     # plot graph using specified file
-    from generate_graph import generate_graphs
-    generate_graphs(path, u_input)
+    # from generate_graph import generate_graphs
+    # # generate_graphs(path, u_input)
 
 execute('potreboval by som data ohladom poctu ludi co zomreli pocas covidu')
 

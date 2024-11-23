@@ -2,4 +2,3 @@ env
 config.json
 __pycache__/openai.cpython-310.pyc
 
-description
