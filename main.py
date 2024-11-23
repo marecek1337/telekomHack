@@ -1,7 +1,7 @@
 from src.ai import ask
 
 def main():
-    ask()
+    ask(input("Your prompt: "))
 
 
 if __name__ == "__main__":

@@ -20,4 +20,4 @@ def ask(str):
     print(completion.choices[0].message)
 
 
-ask(input("Ask smth: "))
+# ask(input("Ask smth: "))
