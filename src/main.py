@@ -1,8 +1,8 @@
 from plot import plot
 import os, re, sys, subprocess, pandas as pd, shutil
 from openai import OpenAI
-api_key = ""
-client = OpenAI(api_key=api_key)
+
+client = OpenAI()
 
 # def get_key():
 #     try:
