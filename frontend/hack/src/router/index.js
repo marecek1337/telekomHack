@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import MainScreen from '@/components/MainScreen.vue';
 import ReportPage from '@/components/ReportPage.vue';
 import LoadingPage from "@/components/LoadingPage";
+import ErrorPage from "@/components/ErrorPage.vue";
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: "/loading",
     name: "LoadingPage",
     component: LoadingPage,
+  },
+  {
+    path: '/error',
+    name: 'Error',
+    component: ErrorPage,
   },
 ];
 
