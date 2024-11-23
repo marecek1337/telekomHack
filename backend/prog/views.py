@@ -72,12 +72,69 @@ def process_request(u_input):
 
         df = pd.read_csv(full_path)
         data_preview = df.head(10).to_string(index=False)
+        chart_code = """
+        const dataset = {
+          labels: ["1/22/20", "1/23/20", "1/24/20", "1/25/20", "1/26/20", "1/27/20", "1/28/20", "1/29/20", "1/30/20", "1/31/20", "2/1/20", "2/2/20", "2/3/20", "2/4/20", "2/5/20", "2/6/20", "2/7/20", "2/8/20", "2/9/20", "2/10/20", "2/11/20", "2/12/20", "2/13/20", "2/14/20", "2/15/20", "2/16/20", "2/17/20", "2/18/20", "2/19/20", "2/20/20", "2/21/20", "2/22/20", "2/23/20", "2/24/20", "2/25/20", "2/26/20", "2/27/20", "2/28/20", "2/29/20", "3/1/20", "3/2/20", "3/3/20", "3/4/20", "3/5/20", "3/6/20", "3/7/20", "3/8/20", "3/9/20"],
+          datasets: [
+            {
+              label: "Afghanistan",
+              data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              fill: false,
+              borderColor: "red"
+            },
+            {
+              label: "Albania",
+              data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              fill: false,
+              borderColor: "blue"
+            },
+            {
+              label: "Algeria",
+              data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              fill: false,
+              borderColor: "green"
+            }
+          ]
+        };
 
+        const ctx = document.getElementById("myChart").getContext("2d");
+        const myChart = new Chart(ctx, {
+          type: "line",
+          data: dataset,
+          options: {
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: "COVID-19 Deaths"
+              }
+            },
+            scales: {
+              x: {
+                display: true,
+                title: {
+                  display: true,
+                  text: "Date"
+                }
+              },
+              y: {
+                display: true,
+                title: {
+                  display: true,
+                  text: "Deaths"
+                }
+              }
+            }
+          }
+        });
+
+                """
         # 5. Generovanie kódu na vykreslenie grafu
         graph_prompt = (
             f"Generate a JavaScript code to plot graphs using this dataset:\n\n{data_preview}\n\n"
             f"Here is the user query: {u_input}. "
-            f"Ensure to return ONLY JavaScript code, without any explanation or comments."
+            f"Ensure to return ONLY JavaScript code, without any explanation or comments and without dependencies."
+            f"Here is the example that i excpect: {chart_code}"
         )
         graph_response = client.chat.completions.create(
             model="gpt-4o",
