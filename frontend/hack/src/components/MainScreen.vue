@@ -13,6 +13,7 @@
       <button @click="showSettings = true" class="settings-button">
         Search Settings
       </button>
+      <button @click="showDownloadModal = true" class="settings-button">Download File</button>
     </div>
     <input
       type="file"
@@ -36,11 +37,25 @@
         </form>
       </div>
     </div>
+    <div v-if="showDownloadModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" @click.self="closeDownloadModal">
+      <div class="bg-white p-8 rounded shadow-lg w-11/12 max-w-lg">
+        <h2 class="text-2xl mb-4">Import file</h2>
+        <form @submit.prevent="downloadFile">
+          <input
+            type="text"
+            v-model="fileUrl"
+            placeholder="Enter File URL"
+            class="border border-gray-300 rounded-lg p-2 w-full mb-4"
+          />
+          <button type="submit" class="bg-blue-500 text-white rounded p-2">Download</button>
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-//import axios from 'axios';
+import axios from 'axios';
 
 export default {
   name: 'SearchPage',
@@ -49,6 +64,8 @@ export default {
       query: '',
       files: [],
       showSettings: false,
+      showDownloadModal: false,
+      fileUrl: '',
       settings: {
         option1: false,
         option2: false,
@@ -85,6 +102,21 @@ export default {
       console.log('Nastavenia uložené:', this.settings);
       this.closeModal();
     },
+    closeDownloadModal() {
+      this.showDownloadModal = false;
+    },
+    async downloadFile() {
+      try {
+
+        const response = await axios.post('http://localhost:8000/download-file/',
+          { url: this.fileUrl },
+        );
+        console.log(response.data.message);
+      } catch (error) {
+        console.error('Error downloading file:', error);
+      }
+      this.closeDownloadModal();
+  }
   },
 };
 </script>
