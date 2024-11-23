@@ -2,7 +2,6 @@
   <div class="report-page">
     <!-- Horný panel -->
     <div class="top-bar">
-      <!-- Dropdown a tlačidlo napravo -->
       <div class="top-bar-right">
         <select v-model="selectedOption">
           <option disabled value="">Prosím vyberte</option>
@@ -31,7 +30,10 @@
       <!-- Pravý panel -->
       <div class="right-panel">
         <h2>Graf</h2>
-        <canvas id="myChart"></canvas>
+        <div v-if="loadingChart">Načítava sa graf...</div>
+        <div v-else>
+          <canvas id="myChart"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -49,51 +51,101 @@ export default {
     return {
       infoContent: "", // Na dynamické načítanie informácií z API
       selectedOption: "",
+      loadingChart: true, // Stav načítavania grafu
+      chartInstance: null, // Ukladá inštanciu grafu Chart.js
     };
   },
   methods: {
+    log(message) {
+      console.log(`[LOG] ${new Date().toISOString()}: ${message}`);
+    },
     fetchInfo() {
-      // Načítanie informácií z API
+      this.log("Začiatok volania API pre informácie.");
       axios
         .get("http://localhost:8000/get-info/") // API endpoint pre informácie
         .then((response) => {
-          this.infoContent = response.data.message; // Predpokladá, že API vracia { "message": "text" }
+          this.infoContent = response.data.message;
+          this.log("Úspešné načítanie informácií.");
         })
         .catch((error) => {
           console.error("Chyba pri načítaní informácií:", error);
           this.infoContent = "Nepodarilo sa načítať informácie.";
+          this.log("Chyba pri načítaní informácií.");
         });
     },
     renderChart() {
-// Načítanie JavaScriptového kódu na generovanie grafu z API
-axios
-  .get("http://localhost:8000/get-chart/") // API endpoint pre graf
-  .then((response) => {
-    const chartCode = response.data.chart_code;
+  this.loadingChart = true; // Začiatok načítavania grafu
+  this.log("Začiatok volania API pre graf.");
 
-    // Vytvorenie datasetu pre graf z JSON kódu
-    const script = new Function("Chart", "document", chartCode);
+  axios
+    .get("http://localhost:8000/get-chart/") // API endpoint pre graf
+    .then((response) => {
+      // Logovanie celého JSON pre graf
+      this.log("Celý JSON odpovede z API pre graf:");
+      console.log(response.data);
 
-    // Volanie funkcie s Chart.js a canvas elementom
-    script(Chart, document);
-  })
-  .catch((error) => {
-    console.error("Chyba pri generovaní grafu:", error);
-  });
-}
-,
-    
+      const chartCode = response.data; // Oprava tu
+
+      // Logovanie získaného kódu grafu pre kontrolu
+      this.log("Získaný kód pre graf:");
+      console.log(chartCode);
+
+      // Nastavíme loadingChart na false, aby sa `<canvas>` element zobrazil
+      this.loadingChart = false;
+
+      // Počkáme na aktualizáciu DOM
+      this.$nextTick(() => {
+        const canvasElement = document.getElementById("myChart");
+
+        if (!canvasElement) {
+          console.error("Canvas element s ID 'myChart' neexistuje.");
+          return;
+        }
+
+        // Zničenie predchádzajúceho grafu, ak už existuje
+        if (this.chartInstance) {
+          this.chartInstance.destroy();
+          this.log("Starý graf bol zničený.");
+        }
+
+        try {
+          // Vykonanie JavaScriptového kódu pre graf
+          const script = new Function("Chart", "document", chartCode);
+          script(Chart, document);
+
+          // Uloženie novej inštancie grafu
+          this.chartInstance = Chart.getChart("myChart");
+          this.log("Úspešné načítanie a vykreslenie grafu.");
+        } catch (error) {
+          console.error("Chyba pri vykresľovaní grafu:", error);
+          this.log("Chyba pri vykresľovaní grafu.");
+        }
+      });
+    })
+    .catch((error) => {
+      // Logovanie chyby
+      console.error("Chyba pri volaní API pre graf:", error);
+      if (error.response && error.response.data) {
+        this.log("JSON odpovede v prípade chyby:");
+        console.log(error.response.data);
+      }
+      this.log("Chyba pri volaní API pre graf.");
+      this.loadingChart = false; // Ukončenie načítavania pri chybe
+    });
+},
+
     handleButtonClick() {
-      // Spracovanie kliknutia na tlačidlo
       alert("Tlačidlo bolo kliknuté!");
     },
   },
   mounted() {
+    this.log("Komponent bol načítaný.");
     this.fetchInfo(); // Načítanie informácií pri načítaní komponentu
     this.renderChart(); // Vykreslenie grafu pri načítaní komponentu
   },
 };
 </script>
+
 
 <style>
 /* Globálne štýly */
