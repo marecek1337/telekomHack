@@ -14,6 +14,8 @@ from openai import OpenAI
 api_key = ""
 client = OpenAI(api_key=api_key)
 
+path_to_file = ""
+tree = []
 
 def process_request(u_input):
     """
@@ -36,7 +38,8 @@ def process_request(u_input):
             tree_structure.append(f"{indent}├── {os.path.basename(dirpath)}")
             for filename in filenames:
                 tree_structure.append(f"{indent}│   ├── {filename}")
-        
+        global tree
+        tree = tree_structure
         # 3. Identifikácia súboru na základe užívateľského vstupu
         prompt = (
             f"Can you find the path to the file mentioned in this sentence: {u_input}? "
@@ -64,6 +67,8 @@ def process_request(u_input):
         if file_path.startswith("data/"):
             file_path = file_path[len("data/"):]
 
+        global path_to_file
+        path_to_file = file_path
         # 4. Načítanie súboru a zobrazenie ukážky
         full_path = os.path.join(root_folder, file_path)
         if not os.path.exists(full_path):
@@ -134,7 +139,7 @@ def process_request(u_input):
             f"Generate a JavaScript code to plot graphs using this dataset:\n\n{data_preview}\n\n"
             f"Here is the user query: {u_input}. "
             f"Ensure to return ONLY JavaScript code, without any explanation or comments and without dependencies."
-            f"Here is the example that i excpect: {chart_code}"
+            f"Here is the example that i excpect: \n\n{chart_code}"
         )
         graph_response = client.chat.completions.create(
             model="gpt-4o",
@@ -160,6 +165,66 @@ def process_request(u_input):
     except Exception as e:
         print(f"Error: {str(e)}")
         return None
+
+
+import pandas as pd
+import os
+
+def file_description():
+    global path_to_file
+    # path_to_file = "/home/istvan/Documents/Hackaton/telekomHack/data/people/time_series_covid19_deaths_global.csv"
+
+    # Load the CSV file
+    if not os.path.exists(path_to_file):
+        print(f"File {path_to_file} does not exist.")
+        return
+
+    df = pd.read_csv(path_to_file)
+    
+    # Convert the DataFrame to a string representation
+    data_string = df.to_string(index=False)
+    
+    # Estimate token count (1 token ≈ 4 characters in English text)
+    max_chars = 128000 * 3 # Approximate maximum characters for 128,000 tokens
+    truncated_data = data_string[:max_chars]
+
+    prompt = (
+        f"Give me a comprehensive text review of this file's contents. "
+        f"Be sure to return only the review."
+        f"Here is the data:\n\n{truncated_data}"
+    )
+    print("prompt generated")
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": "You are a data review assistant."},
+            {"role": "user", "content": prompt},
+        ],
+    )
+    
+    print(response.choices[0].message.content)
+    return response.choices[0].message.content
+file_description()
+
+# def path_description():
+#     global path_to_file
+#     global tree
+
+#     prompt = (
+#         f"Give me a shor text review of this . "
+#         f"Be sure to return only the review."
+#         f"Here is the data:\n\n{truncated_data}"
+#     )
+    
+#     print("prompt generated")
+#     response = client.chat.completions.create(
+#         model="gpt-4o",
+#         messages=[
+#             {"role": "system", "content": "You are a data review assistant."},
+#             {"role": "user", "content": prompt},
+#         ],
+#     )
+    
 
 
 def current_date(request):
@@ -277,3 +342,4 @@ def get_summary(request):
     else:
         # Ak nie je požiadavka typu GET
         return JsonResponse({'error': 'Method not allowed'}, status=405)
+
