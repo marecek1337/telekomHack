@@ -1,0 +1,5 @@
+covid_deaths_over_time.html: This graph represents the trend of COVID-19 deaths over the observed period.
+covid_deaths_scatter_plot.html: This graph represents a scatter plot of COVID-19 deaths over the observed period.
+covid_deaths_bar_chart.html: This graph represents a bar chart of COVID-19 deaths showing the distribution.
+covid_deaths_box_plot.html: This graph represents a box plot showing the spread and outliers in COVID-19 deaths data.
+covid_deaths_histogram.html: This graph represents a histogram showing the frequency distribution of COVID-19 deaths.
