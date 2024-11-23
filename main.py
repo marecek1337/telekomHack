@@ -1,4 +1,4 @@
-from ai import ask
+from src.ai import ask
 
 def main():
     ask()
