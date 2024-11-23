@@ -16,16 +16,6 @@ def send_to_chatgpt(prompt):
     )
     return completion.choices[0].message.content
 
-def plot_graph(df, x_column, y_column):
-    """Побудова графіка на основі стовпців."""
-    plt.figure(figsize=(10, 6))
-    plt.plot(df[x_column], df[y_column], marker='o', linestyle='-', color='b')
-    plt.title(f"Графік {y_column} залежно від {x_column}")
-    plt.xlabel(x_column)
-    plt.ylabel(y_column)
-    plt.grid(True)
-    plt.show()
-
 def generate_graphs(file_path, given_prompt):
 
     try:
