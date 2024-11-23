@@ -1,5 +1,5 @@
 # used to generate a html graph
-import re, os, subprocess, pandas as pd
+import re, os, subprocess, pandas as pd, sys
 from ai import ask
 
 def _generate_code_to_plot(u_input, path):
@@ -41,13 +41,24 @@ def _sanitize_response(response):
 def _install_dependencies(code):
     """
     Installs dependencies mentioned in the code using pip.
+    Filters out standard libraries that do not require installation.
     """
+    # List of common standard libraries to exclude from installation
+    standard_libraries = {
+        'os', 'sys', 're', 'math', 'datetime', 'json', 'logging', 
+        'subprocess', 'pathlib', 'collections', 'itertools', 'threading',
+        'queue', 'random', 'statistics', 'functools'
+    }
+    
     # Match import statements
     imports = re.findall(r"import (\w+)", code)
     for lib in imports:
+        if lib in standard_libraries:
+            print(f"Skipping standard library: {lib}")
+            continue
         print(f"Installing dependency: {lib}")
         try:
-            subprocess.check_call([os.sys.executable, "-m", "pip", "install", lib])
+            subprocess.check_call([sys.executable, "-m", "pip", "install", lib])
         except subprocess.CalledProcessError as e:
             print(f"Failed to install {lib}: {e}")
 

@@ -42,18 +42,17 @@ def get_path(u_input):
             print(f"Extracted path: {path}")
             return path
     print("Path not found in the response.")
-    get_path(u_input)
+    return get_path(u_input)
 
 
-def main():
+
+def execute():
     u_input = input("> ")
     # path to get file from
-    path = get_path(u_input)
+    path ="data/" + get_path(u_input)
+    
     # plot graph using specified file
-        
+    from generate_graph import generate_graphs
+    generate_graphs(path, u_input)
 
-    # body #
-
-if __name__ == "__main__":
-    main()
 # potreboval by som data ohladom poctu ludi co zomreli pocas covidu
