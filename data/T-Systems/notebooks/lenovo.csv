@@ -1,0 +1,101 @@
+serial_number,model,processor,ram_size,storage_capacity,screen_size,weight,color,purchase_date,warranty_status
+1,ThinkPad T480,Intel Core i5,20,1021,14.1,5.0,blue,12/12/2021,true
+2,ThinkPad X1 Carbon,Intel Core i7,21,1574,15.9,4.3,blue,3/24/2017,true
+3,ThinkPad T480,Intel Core i7,27,1359,13.9,4.6,silver,5/11/2014,true
+4,ThinkPad E580,Intel Core i7,5,1825,15.0,2.5,black,8/18/2015,false
+5,ThinkPad Yoga,Intel Core i5,13,1232,15.0,3.3,gray,6/13/2010,false
+6,ThinkPad X1 Carbon,AMD Ryzen 7,25,836,12.4,4.4,gray,7/25/2014,true
+7,ThinkPad E580,Intel Core i7,29,640,15.8,4.6,blue,8/11/2010,true
+8,ThinkPad X1 Carbon,AMD Ryzen 5,15,1838,15.4,3.9,black,10/31/2018,false
+9,ThinkPad X1 Carbon,AMD Ryzen 5,21,755,12.3,2.9,blue,9/25/2019,true
+10,ThinkPad E580,AMD Ryzen 7,6,955,15.8,4.3,silver,5/31/2011,true
+11,ThinkPad T480,Intel Core i7,21,1463,13.2,4.6,gray,7/11/2014,false
+12,ThinkPad Yoga,AMD Ryzen 5,14,470,14.4,5.2,blue,2/28/2021,false
+13,ThinkPad T480,AMD Ryzen 7,11,2008,13.7,3.5,silver,6/28/2017,false
+14,ThinkPad X1 Carbon,AMD Ryzen 7,18,275,12.4,5.0,black,10/23/2018,false
+15,ThinkPad X1 Carbon,AMD Ryzen 7,32,1588,12.5,3.9,silver,9/9/2021,false
+16,ThinkPad Yoga,Intel Core i5,22,1073,15.1,5.3,gray,1/16/2018,false
+17,ThinkPad E580,Intel Core i7,19,1996,12.1,5.2,silver,4/15/2010,true
+18,ThinkPad X1 Carbon,Intel Core i7,29,314,12.9,5.2,blue,10/29/2022,false
+19,ThinkPad T480,AMD Ryzen 7,15,845,14.0,3.5,silver,7/30/2012,false
+20,ThinkPad X1 Carbon,AMD Ryzen 7,16,853,16.9,4.1,gray,4/12/2018,true
+21,ThinkPad T480,AMD Ryzen 5,13,1821,14.8,3.6,silver,11/19/2015,false
+22,ThinkPad X1 Carbon,Intel Core i7,11,1953,16.5,2.7,gray,12/23/2022,false
+23,ThinkPad E580,Intel Core i5,10,1230,16.5,5.1,gray,5/13/2014,false
+24,ThinkPad X1 Carbon,AMD Ryzen 7,13,417,14.7,5.3,blue,9/15/2017,true
+25,ThinkPad E580,AMD Ryzen 5,27,1430,14.8,4.9,silver,8/31/2013,false
+26,ThinkPad E580,AMD Ryzen 5,19,807,12.5,5.3,black,3/11/2017,false
+27,ThinkPad E580,Intel Core i7,30,604,12.7,4.3,blue,6/3/2020,false
+28,ThinkPad T480,AMD Ryzen 5,16,1395,15.7,5.1,black,3/5/2018,true
+29,ThinkPad Yoga,Intel Core i7,30,684,14.5,3.1,silver,1/8/2012,true
+30,ThinkPad Yoga,AMD Ryzen 7,17,1511,12.0,4.0,silver,10/31/2019,false
+31,ThinkPad E580,Intel Core i7,24,724,15.4,4.2,blue,10/30/2020,false
+32,ThinkPad Yoga,Intel Core i5,30,164,16.4,5.1,gray,4/11/2012,true
+33,ThinkPad T480,Intel Core i7,4,1903,13.2,2.8,gray,5/24/2012,true
+34,ThinkPad Yoga,Intel Core i5,11,1283,16.3,5.1,blue,5/23/2018,true
+35,ThinkPad T480,Intel Core i7,11,1665,14.3,4.7,gray,9/14/2018,true
+36,ThinkPad Yoga,Intel Core i5,18,521,15.6,4.0,black,6/30/2013,false
+37,ThinkPad E580,AMD Ryzen 7,11,158,14.3,5.5,blue,12/17/2017,true
+38,ThinkPad E580,Intel Core i5,27,553,13.1,3.7,gray,11/20/2013,true
+39,ThinkPad X1 Carbon,AMD Ryzen 5,23,1405,15.1,4.1,black,1/19/2020,false
+40,ThinkPad E580,Intel Core i5,25,387,13.0,3.8,gray,12/10/2011,false
+41,ThinkPad T480,AMD Ryzen 7,22,186,12.6,3.5,blue,8/4/2018,false
+42,ThinkPad X1 Carbon,Intel Core i5,17,1898,13.3,2.7,black,8/15/2018,true
+43,ThinkPad Yoga,Intel Core i7,11,1181,15.4,4.1,silver,11/10/2013,false
+44,ThinkPad X1 Carbon,AMD Ryzen 7,22,1915,14.7,3.6,silver,10/3/2018,false
+45,ThinkPad Yoga,AMD Ryzen 7,5,459,13.0,4.7,blue,7/6/2020,true
+46,ThinkPad E580,AMD Ryzen 5,27,762,14.5,4.3,gray,7/14/2016,false
+47,ThinkPad Yoga,AMD Ryzen 5,14,1475,12.4,5.3,gray,8/2/2010,false
+48,ThinkPad X1 Carbon,Intel Core i7,13,966,14.8,3.9,silver,12/7/2020,true
+49,ThinkPad Yoga,AMD Ryzen 7,28,394,14.8,5.1,black,12/19/2013,false
+50,ThinkPad Yoga,Intel Core i5,4,1592,13.2,2.7,gray,10/1/2020,false
+51,ThinkPad E580,Intel Core i7,22,1401,16.6,5.4,black,9/27/2020,true
+52,ThinkPad E580,AMD Ryzen 7,32,759,16.3,3.1,blue,2/15/2020,true
+53,ThinkPad X1 Carbon,Intel Core i5,4,593,12.1,5.1,blue,7/26/2020,true
+54,ThinkPad X1 Carbon,AMD Ryzen 5,19,1273,14.2,5.2,black,11/2/2017,true
+55,ThinkPad T480,AMD Ryzen 7,20,1243,13.7,2.9,silver,2/18/2019,true
+56,ThinkPad Yoga,AMD Ryzen 5,24,1785,14.6,5.4,gray,4/8/2017,true
+57,ThinkPad Yoga,Intel Core i7,19,1509,14.4,5.2,gray,5/29/2014,false
+58,ThinkPad Yoga,Intel Core i7,8,1039,13.3,3.2,silver,12/30/2011,true
+59,ThinkPad E580,Intel Core i5,12,480,13.2,3.3,silver,10/26/2021,true
+60,ThinkPad T480,AMD Ryzen 5,20,635,16.6,2.7,blue,4/29/2016,true
+61,ThinkPad E580,Intel Core i7,13,1684,16.6,4.8,gray,6/9/2014,false
+62,ThinkPad X1 Carbon,AMD Ryzen 7,29,673,14.9,3.8,blue,8/23/2018,true
+63,ThinkPad X1 Carbon,AMD Ryzen 5,15,460,16.0,3.3,silver,3/17/2013,true
+64,ThinkPad X1 Carbon,Intel Core i5,17,1582,14.9,3.8,blue,7/27/2016,false
+65,ThinkPad X1 Carbon,AMD Ryzen 5,21,949,12.3,4.0,silver,7/11/2021,false
+66,ThinkPad T480,Intel Core i7,18,661,14.3,5.2,silver,3/4/2011,false
+67,ThinkPad E580,Intel Core i7,26,246,14.2,5.4,silver,8/13/2022,false
+68,ThinkPad X1 Carbon,AMD Ryzen 5,20,1926,15.5,4.6,silver,1/29/2022,false
+69,ThinkPad X1 Carbon,AMD Ryzen 5,10,413,14.6,4.0,blue,5/17/2021,true
+70,ThinkPad E580,AMD Ryzen 5,12,1648,17.0,3.2,gray,2/12/2021,true
+71,ThinkPad X1 Carbon,Intel Core i5,30,1395,16.5,2.8,silver,11/30/2014,true
+72,ThinkPad E580,Intel Core i7,26,720,15.2,3.0,gray,2/16/2014,true
+73,ThinkPad X1 Carbon,Intel Core i5,7,830,14.7,5.2,gray,8/11/2014,false
+74,ThinkPad E580,Intel Core i7,4,712,13.2,2.9,silver,6/29/2021,false
+75,ThinkPad T480,Intel Core i5,20,456,13.6,3.1,gray,11/23/2020,false
+76,ThinkPad Yoga,AMD Ryzen 5,16,1316,15.6,2.7,blue,1/25/2020,false
+77,ThinkPad T480,Intel Core i5,23,1574,12.7,3.0,silver,12/31/2017,true
+78,ThinkPad X1 Carbon,Intel Core i7,27,1891,12.3,5.3,blue,4/26/2017,true
+79,ThinkPad E580,Intel Core i5,16,791,13.1,4.6,black,7/14/2020,true
+80,ThinkPad E580,AMD Ryzen 5,25,1842,12.7,3.1,black,10/6/2022,true
+81,ThinkPad X1 Carbon,AMD Ryzen 5,23,934,15.5,3.7,blue,1/21/2014,false
+82,ThinkPad T480,AMD Ryzen 5,10,1247,15.7,3.8,silver,7/25/2010,false
+83,ThinkPad X1 Carbon,AMD Ryzen 7,23,1214,16.9,3.9,silver,1/31/2011,true
+84,ThinkPad T480,AMD Ryzen 5,11,639,16.4,4.6,gray,12/3/2012,true
+85,ThinkPad Yoga,AMD Ryzen 7,5,1644,15.8,4.3,silver,11/16/2019,false
+86,ThinkPad Yoga,AMD Ryzen 7,15,374,15.3,3.6,blue,9/28/2015,true
+87,ThinkPad Yoga,Intel Core i7,9,305,13.3,3.2,black,5/6/2012,true
+88,ThinkPad X1 Carbon,AMD Ryzen 7,13,1239,15.6,5.3,black,2/8/2011,true
+89,ThinkPad X1 Carbon,AMD Ryzen 5,26,148,16.2,4.2,gray,11/29/2018,true
+90,ThinkPad E580,Intel Core i5,27,686,15.6,2.6,silver,10/26/2016,true
+91,ThinkPad X1 Carbon,AMD Ryzen 7,14,1499,12.0,4.1,gray,5/11/2018,true
+92,ThinkPad X1 Carbon,Intel Core i7,31,608,12.9,3.6,gray,12/28/2015,false
+93,ThinkPad E580,AMD Ryzen 5,7,1355,12.6,4.1,blue,8/8/2013,true
+94,ThinkPad T480,AMD Ryzen 7,26,139,13.6,4.5,silver,9/15/2012,true
+95,ThinkPad X1 Carbon,AMD Ryzen 7,27,367,14.1,2.8,silver,5/17/2013,false
+96,ThinkPad E580,AMD Ryzen 5,11,637,12.9,4.8,gray,5/29/2014,true
+97,ThinkPad Yoga,Intel Core i5,5,867,12.2,3.9,gray,2/25/2021,false
+98,ThinkPad T480,Intel Core i7,12,299,12.6,3.7,silver,4/3/2012,true
+99,ThinkPad Yoga,AMD Ryzen 5,8,1330,16.2,3.3,silver,12/14/2014,false
+100,ThinkPad Yoga,Intel Core i7,29,1662,13.0,4.3,silver,6/16/2019,false

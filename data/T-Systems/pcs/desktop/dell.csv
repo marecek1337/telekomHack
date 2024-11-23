@@ -1,0 +1,101 @@
+serial_number,model,processor,ram_size_gb,storage_type,storage_size_gb,screen_size_inches,graphics_card,operating_system,price_usd
+1,XPS,AMD Ryzen 7,30,SSD,1880,16.8,NVIDIA GeForce RTX 3060,Windows 10 Home,1457.05
+2,XPS,Intel Core i5,18,HDD,276,13.5,AMD Radeon RX 6700 XT,Windows 10 Pro,2947.45
+3,XPS,Intel Core i5,25,HDD,1559,15.9,AMD Radeon RX 6700 XT,Windows 10 Pro,2529.11
+4,Alienware,Intel Core i7,14,Hybrid,1533,14.8,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,727.57
+5,Inspiron,AMD Ryzen 7,27,SSD,488,16.4,NVIDIA GeForce RTX 3060,Windows 10 Home,2068.47
+6,Inspiron,Intel Core i5,4,HDD,1786,15.3,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,2699.84
+7,Alienware,Intel Core i5,25,Hybrid,1675,13.5,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,2694.67
+8,XPS,Intel Core i7,22,Hybrid,1916,16.5,Intel Iris Xe,Windows 10 Pro,1128.96
+9,XPS,AMD Ryzen 7,26,SSD,927,15.0,NVIDIA GeForce RTX 3060,Windows 10 Home,2286.76
+10,Alienware,AMD Ryzen 7,19,SSD,880,13.1,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,955.68
+11,Alienware,Intel Core i7,22,HDD,1332,16.3,Intel Iris Xe,Ubuntu 20.04 LTS,575.46
+12,Inspiron,Intel Core i7,20,SSD,1216,14.8,Intel Iris Xe,Windows 10 Home,2086.89
+13,Inspiron,AMD Ryzen 7,20,SSD,503,13.3,NVIDIA GeForce RTX 3060,Windows 10 Pro,1810.55
+14,XPS,Intel Core i5,6,Hybrid,1025,16.4,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,2687.7
+15,XPS,AMD Ryzen 7,11,Hybrid,1494,14.6,AMD Radeon RX 6700 XT,Windows 10 Pro,823.37
+16,Alienware,AMD Ryzen 7,4,SSD,587,15.4,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,2987.49
+17,Inspiron,Intel Core i7,11,HDD,494,16.9,AMD Radeon RX 6700 XT,Windows 10 Pro,1682.31
+18,XPS,AMD Ryzen 7,10,HDD,927,15.7,Intel Iris Xe,Windows 10 Home,1623.16
+19,Inspiron,Intel Core i5,27,Hybrid,542,13.7,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,896.28
+20,XPS,AMD Ryzen 7,14,SSD,688,14.1,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,1570.68
+21,XPS,Intel Core i7,16,SSD,1531,13.6,AMD Radeon RX 6700 XT,Windows 10 Home,2030.44
+22,Alienware,Intel Core i7,15,Hybrid,1994,15.3,AMD Radeon RX 6700 XT,Windows 10 Home,2619.42
+23,Inspiron,Intel Core i5,4,SSD,970,13.4,NVIDIA GeForce RTX 3060,Windows 10 Pro,2085.27
+24,Alienware,AMD Ryzen 7,16,Hybrid,1832,13.8,Intel Iris Xe,Windows 10 Pro,1984.09
+25,Alienware,Intel Core i5,14,HDD,1427,16.2,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,1283.42
+26,Inspiron,AMD Ryzen 7,8,HDD,482,14.3,Intel Iris Xe,Windows 10 Home,1821.72
+27,Alienware,AMD Ryzen 7,23,HDD,1204,15.3,NVIDIA GeForce RTX 3060,Windows 10 Pro,623.64
+28,Inspiron,AMD Ryzen 7,15,Hybrid,1030,16.4,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,1729.77
+29,Inspiron,Intel Core i5,12,SSD,1251,13.1,Intel Iris Xe,Windows 10 Home,767.75
+30,Alienware,AMD Ryzen 7,7,Hybrid,937,16.3,NVIDIA GeForce RTX 3060,Windows 10 Home,886.95
+31,Inspiron,AMD Ryzen 7,26,Hybrid,1573,13.8,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,1023.52
+32,XPS,AMD Ryzen 7,21,SSD,1582,17.0,Intel Iris Xe,Ubuntu 20.04 LTS,2778.71
+33,XPS,Intel Core i7,21,Hybrid,1804,16.2,Intel Iris Xe,Windows 10 Home,1311.04
+34,Alienware,AMD Ryzen 7,19,SSD,709,15.9,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,2226.21
+35,Inspiron,Intel Core i7,8,HDD,853,13.8,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,517.58
+36,Inspiron,AMD Ryzen 7,24,HDD,1159,15.4,AMD Radeon RX 6700 XT,Windows 10 Home,1983.99
+37,XPS,Intel Core i7,15,SSD,848,14.8,NVIDIA GeForce RTX 3060,Windows 10 Home,870.9
+38,XPS,Intel Core i7,15,HDD,644,13.1,NVIDIA GeForce RTX 3060,Windows 10 Pro,1662.51
+39,Alienware,Intel Core i5,30,Hybrid,1947,13.1,NVIDIA GeForce RTX 3060,Windows 10 Pro,1744.43
+40,Alienware,Intel Core i5,25,HDD,1322,15.8,NVIDIA GeForce RTX 3060,Windows 10 Home,1377.49
+41,XPS,AMD Ryzen 7,30,HDD,1605,13.0,Intel Iris Xe,Ubuntu 20.04 LTS,1213.13
+42,Alienware,Intel Core i5,19,HDD,1295,15.1,AMD Radeon RX 6700 XT,Windows 10 Pro,1698.72
+43,Alienware,Intel Core i5,8,HDD,1321,16.4,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,1264.91
+44,XPS,Intel Core i5,12,Hybrid,813,15.3,NVIDIA GeForce RTX 3060,Windows 10 Pro,851.08
+45,Alienware,Intel Core i7,26,SSD,1024,14.2,Intel Iris Xe,Windows 10 Pro,1472.78
+46,Alienware,AMD Ryzen 7,10,Hybrid,1462,15.7,Intel Iris Xe,Windows 10 Home,1528.9
+47,Inspiron,Intel Core i7,18,HDD,357,13.3,Intel Iris Xe,Windows 10 Pro,2118.07
+48,XPS,AMD Ryzen 7,12,Hybrid,691,15.5,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,2128.67
+49,Alienware,AMD Ryzen 7,15,Hybrid,1217,13.7,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,2198.53
+50,Inspiron,AMD Ryzen 7,24,SSD,1951,14.0,Intel Iris Xe,Windows 10 Home,2624.09
+51,Inspiron,Intel Core i7,27,SSD,987,15.1,NVIDIA GeForce RTX 3060,Windows 10 Home,1490.64
+52,XPS,AMD Ryzen 7,19,Hybrid,1424,13.3,Intel Iris Xe,Windows 10 Home,1129.52
+53,Alienware,Intel Core i7,13,HDD,1841,16.1,Intel Iris Xe,Ubuntu 20.04 LTS,2878.59
+54,Alienware,AMD Ryzen 7,7,SSD,1723,15.5,AMD Radeon RX 6700 XT,Windows 10 Pro,2143.73
+55,Alienware,Intel Core i5,16,HDD,1801,16.4,NVIDIA GeForce RTX 3060,Windows 10 Pro,2281.7
+56,Inspiron,AMD Ryzen 7,31,SSD,938,14.1,NVIDIA GeForce RTX 3060,Windows 10 Home,1306.4
+57,Inspiron,Intel Core i5,27,HDD,321,16.1,Intel Iris Xe,Windows 10 Home,1399.35
+58,Alienware,Intel Core i5,19,HDD,668,16.5,Intel Iris Xe,Windows 10 Home,1678.49
+59,Inspiron,AMD Ryzen 7,14,Hybrid,431,16.0,AMD Radeon RX 6700 XT,Windows 10 Pro,806.15
+60,XPS,Intel Core i7,29,HDD,1676,13.3,NVIDIA GeForce RTX 3060,Windows 10 Pro,1538.29
+61,Inspiron,Intel Core i5,13,Hybrid,372,14.6,Intel Iris Xe,Ubuntu 20.04 LTS,2052.84
+62,Alienware,Intel Core i5,9,SSD,1233,16.3,Intel Iris Xe,Windows 10 Home,1424.72
+63,Alienware,AMD Ryzen 7,16,Hybrid,1589,15.6,AMD Radeon RX 6700 XT,Windows 10 Home,2673.38
+64,Inspiron,AMD Ryzen 7,7,SSD,1620,14.9,Intel Iris Xe,Ubuntu 20.04 LTS,2300.45
+65,Alienware,Intel Core i5,25,SSD,767,15.6,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,616.9
+66,XPS,AMD Ryzen 7,7,HDD,464,14.5,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,2782.63
+67,XPS,Intel Core i7,4,SSD,1974,14.6,Intel Iris Xe,Windows 10 Pro,1099.43
+68,Inspiron,Intel Core i5,5,Hybrid,1579,16.8,AMD Radeon RX 6700 XT,Windows 10 Home,906.18
+69,XPS,AMD Ryzen 7,12,Hybrid,1640,14.6,Intel Iris Xe,Ubuntu 20.04 LTS,1088.82
+70,Inspiron,Intel Core i5,21,HDD,1544,13.0,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,2854.11
+71,Alienware,AMD Ryzen 7,29,HDD,902,14.0,AMD Radeon RX 6700 XT,Windows 10 Pro,2307.02
+72,Inspiron,Intel Core i7,27,Hybrid,1838,15.6,Intel Iris Xe,Ubuntu 20.04 LTS,1484.54
+73,XPS,AMD Ryzen 7,30,Hybrid,526,15.5,AMD Radeon RX 6700 XT,Windows 10 Home,2249.42
+74,XPS,Intel Core i7,24,HDD,1700,13.6,AMD Radeon RX 6700 XT,Windows 10 Home,2537.45
+75,Alienware,Intel Core i7,4,SSD,1757,13.5,Intel Iris Xe,Ubuntu 20.04 LTS,1024.86
+76,Alienware,Intel Core i7,12,Hybrid,1556,15.2,AMD Radeon RX 6700 XT,Windows 10 Home,1641.31
+77,Inspiron,Intel Core i5,12,SSD,1860,16.1,NVIDIA GeForce RTX 3060,Windows 10 Pro,2668.13
+78,Alienware,Intel Core i7,6,Hybrid,606,14.4,NVIDIA GeForce RTX 3060,Windows 10 Home,875.71
+79,XPS,Intel Core i7,26,HDD,1337,14.3,NVIDIA GeForce RTX 3060,Windows 10 Home,1959.74
+80,Inspiron,Intel Core i7,7,SSD,452,13.5,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,609.41
+81,Inspiron,AMD Ryzen 7,30,HDD,1636,15.8,NVIDIA GeForce RTX 3060,Windows 10 Home,2917.77
+82,XPS,Intel Core i7,9,SSD,1449,16.6,AMD Radeon RX 6700 XT,Windows 10 Pro,2009.82
+83,XPS,Intel Core i7,27,Hybrid,1584,14.9,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,2481.48
+84,Alienware,Intel Core i5,19,SSD,518,15.2,Intel Iris Xe,Windows 10 Pro,1304.39
+85,Alienware,AMD Ryzen 7,26,HDD,263,15.9,NVIDIA GeForce RTX 3060,Windows 10 Home,2258.7
+86,Inspiron,Intel Core i7,7,Hybrid,409,14.8,NVIDIA GeForce RTX 3060,Windows 10 Home,2054.42
+87,Alienware,AMD Ryzen 7,17,HDD,1944,16.9,AMD Radeon RX 6700 XT,Windows 10 Pro,2163.05
+88,Alienware,Intel Core i7,30,SSD,628,16.8,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,739.65
+89,XPS,AMD Ryzen 7,29,Hybrid,1387,17.0,NVIDIA GeForce RTX 3060,Ubuntu 20.04 LTS,726.62
+90,Alienware,Intel Core i5,17,SSD,1468,15.0,AMD Radeon RX 6700 XT,Windows 10 Pro,1276.68
+91,XPS,Intel Core i5,17,Hybrid,620,14.8,Intel Iris Xe,Windows 10 Pro,2468.31
+92,Inspiron,Intel Core i7,8,Hybrid,1878,16.2,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,2326.68
+93,Alienware,AMD Ryzen 7,27,HDD,520,16.6,Intel Iris Xe,Windows 10 Pro,1036.36
+94,Alienware,Intel Core i7,23,HDD,974,15.9,AMD Radeon RX 6700 XT,Windows 10 Pro,1149.58
+95,XPS,Intel Core i5,30,Hybrid,765,13.9,AMD Radeon RX 6700 XT,Windows 10 Pro,2916.58
+96,XPS,Intel Core i7,22,HDD,1323,13.3,AMD Radeon RX 6700 XT,Ubuntu 20.04 LTS,1307.26
+97,XPS,Intel Core i7,18,HDD,386,14.5,Intel Iris Xe,Windows 10 Home,1124.02
+98,Alienware,Intel Core i5,13,SSD,1880,13.7,Intel Iris Xe,Ubuntu 20.04 LTS,2122.29
+99,Alienware,AMD Ryzen 7,8,SSD,1576,14.4,Intel Iris Xe,Windows 10 Pro,985.92
+100,Inspiron,Intel Core i5,30,HDD,1283,16.6,NVIDIA GeForce RTX 3060,Windows 10 Pro,1597.88

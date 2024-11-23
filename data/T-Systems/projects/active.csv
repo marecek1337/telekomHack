@@ -1,0 +1,11 @@
+project_id,start_date,end_date,budget,status,team_lead,department,client_name,priority
+1,12/3/2021,5/14/2020,Dollar,completed,Sigrid Cinnamond,Services,Skidoo,medium
+2,8/8/2022,4/8/2020,Yuan Renminbi,active,Harold Simner,Services,Tagopia,high
+3,2/4/2021,9/7/2020,Yuan Renminbi,active,Guss Rushmer,Support,Livetube,medium
+4,3/24/2022,4/2/2021,Rupee,completed,Kerk Haborn,Legal,Vinder,high
+5,9/22/2021,9/18/2020,Yuan Renminbi,pending,Celka Jantel,Engineering,Edgeblab,high
+6,12/19/2020,4/3/2022,Ruble,completed,Trueman Raisher,Human Resources,Skajo,low
+7,7/14/2020,5/17/2021,Pound,active,Cynthea Priter,Human Resources,Digitube,medium
+8,8/16/2020,6/20/2020,Real,active,Allyn MacTrustrie,Accounting,Avamba,low
+9,1/3/2021,6/5/2021,Euro,active,Trix Chasmer,Training,Pixonyx,low
+10,7/22/2021,8/23/2021,Cedi,active,Lane Shill,Product Management,Mymm,low
