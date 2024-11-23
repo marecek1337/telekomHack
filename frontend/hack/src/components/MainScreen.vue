@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'SearchPage',
   data() {
@@ -55,9 +57,17 @@ export default {
     };
   },
   methods: {
-    onSearch() {
-      // Presmerovanie na podstránku 'report'
-      this.$router.push('/report');
+    async onSearch() {
+      try {
+        // Odošleme GET požiadavku na 'http://localhost/current-date/'
+        const response = await axios.get('http://localhost:8000/current-date/');
+        const data = response.data;
+
+        // Prenesieme dáta do ReportPage cez router query parametre
+        this.$router.push({ path: '/report', query: { data: JSON.stringify(data) } });
+      } catch (error) {
+        console.error('Chyba pri načítaní dát:', error);
+      }
     },
     onImportData() {
       this.$refs.fileInput.click();
