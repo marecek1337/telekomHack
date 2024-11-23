@@ -1,0 +1,54 @@
+model,processor,ram,storage_capacity,screen_size,weight,battery_life,price,color,release_date
+Alienware,AMD Ryzen 7,15,902,14.4,2.5,4.6,2461.55,Rose Gold,12/17/2016
+XPS,AMD Ryzen 7,32,1751,15.0,3.8,5.2,2291.03,Silver,11/19/2018
+Inspiron,Intel Core i7,9,650,15.3,3.8,6.6,2186.98,Silver,8/16/2017
+Latitude,AMD Ryzen 5,32,1791,13.4,2.6,10.1,688.6,Blue,8/7/2018
+Alienware,Intel Core i7,12,1718,14.8,3.8,8.3,2125.81,Blue,8/15/2015
+Alienware,Intel Core i5,29,160,17.0,5.9,9.4,2265.24,Black,7/7/2020
+Alienware,Intel Core i5,11,1195,14.6,6.0,9.9,1750.76,Black,4/25/2018
+XPS,Intel Core i5,5,2039,16.8,5.9,11.0,1234.5,Blue,4/19/2015
+Alienware,Intel Core i5,25,1368,13.7,5.3,6.9,2350.36,Rose Gold,7/20/2019
+Latitude,Intel Core i7,7,323,13.5,3.5,8.0,2142.4,Black,5/17/2019
+Latitude,AMD Ryzen 5,7,1577,14.0,5.7,7.2,2390.06,Rose Gold,8/17/2021
+XPS,Intel Core i5,21,1792,16.7,5.0,9.8,1684.52,Rose Gold,12/21/2018
+XPS,AMD Ryzen 5,19,957,14.1,3.9,5.9,752.52,Silver,11/5/2018
+Latitude,Intel Core i7,23,583,14.6,5.4,7.9,1535.81,Silver,10/30/2020
+XPS,AMD Ryzen 7,32,920,13.1,4.3,7.1,919.01,Blue,12/20/2020
+Inspiron,AMD Ryzen 5,16,684,16.8,4.2,7.5,1696.49,Blue,7/26/2016
+Latitude,Intel Core i7,13,1568,16.9,5.9,5.7,1743.89,Blue,1/10/2018
+Alienware,Intel Core i5,29,1289,16.9,4.0,10.0,1207.51,Blue,3/12/2021
+Alienware,Intel Core i7,28,1855,15.6,5.1,9.8,945.82,Silver,8/8/2020
+XPS,AMD Ryzen 5,24,412,15.6,2.7,10.8,1740.13,Silver,10/18/2015
+Latitude,Intel Core i5,18,705,16.4,4.0,9.4,1906.99,Rose Gold,11/7/2017
+Alienware,AMD Ryzen 7,32,864,13.3,5.9,11.5,2565.02,Black,10/27/2015
+Alienware,AMD Ryzen 5,16,1670,15.1,3.3,6.4,2622.53,Black,4/13/2019
+Inspiron,Intel Core i5,27,1503,16.5,4.7,6.7,739.12,Black,6/24/2019
+Inspiron,AMD Ryzen 7,7,411,13.1,4.4,11.1,2232.7,Silver,10/25/2017
+XPS,Intel Core i5,25,1684,14.7,5.0,8.4,1359.21,Silver,12/27/2018
+Alienware,AMD Ryzen 7,6,1529,14.2,3.7,8.3,2447.16,Silver,8/23/2017
+Latitude,AMD Ryzen 7,21,868,14.0,5.3,10.9,1446.43,Rose Gold,2/2/2015
+Alienware,Intel Core i5,23,649,15.6,4.7,7.1,2911.34,Silver,8/22/2021
+Alienware,AMD Ryzen 7,20,577,14.8,5.4,11.7,1756.96,Black,5/24/2019
+Latitude,AMD Ryzen 5,11,963,13.6,4.5,10.9,845.29,Rose Gold,8/26/2019
+Alienware,AMD Ryzen 7,4,293,15.4,5.0,11.0,2008.67,Blue,3/29/2019
+Alienware,AMD Ryzen 7,16,2020,14.7,5.2,7.0,2852.85,Black,4/29/2021
+Alienware,Intel Core i7,27,962,14.3,2.7,5.0,1587.17,Black,11/23/2021
+Inspiron,AMD Ryzen 5,20,891,13.2,5.9,9.8,1399.95,Rose Gold,3/2/2015
+Inspiron,Intel Core i5,28,175,13.2,5.1,7.1,1957.29,Black,6/7/2016
+Latitude,Intel Core i5,14,1163,16.0,3.4,6.8,2693.4,Rose Gold,6/16/2020
+XPS,Intel Core i7,22,1819,13.5,2.9,5.2,807.74,Black,12/3/2020
+Latitude,Intel Core i7,27,1566,16.6,4.7,8.1,520.56,Silver,3/3/2020
+Latitude,Intel Core i7,9,999,13.7,3.4,6.9,1072.44,Black,7/8/2020
+Alienware,Intel Core i7,6,887,15.3,4.3,7.2,1638.54,Silver,12/31/2016
+XPS,Intel Core i7,26,819,15.9,2.7,6.0,1614.48,Silver,5/28/2020
+Inspiron,AMD Ryzen 5,26,729,13.4,4.2,5.1,555.55,Black,2/18/2021
+Alienware,AMD Ryzen 7,28,1660,14.7,5.8,8.9,2892.75,Blue,12/15/2020
+XPS,AMD Ryzen 5,30,232,16.3,3.7,7.5,1756.02,Rose Gold,9/12/2016
+XPS,Intel Core i5,4,1377,14.7,4.5,10.7,2042.63,Blue,6/27/2017
+XPS,AMD Ryzen 5,7,832,14.7,4.2,9.3,972.44,Rose Gold,3/31/2020
+Alienware,AMD Ryzen 7,13,1990,14.3,5.6,11.4,652.44,Blue,11/23/2020
+XPS,Intel Core i7,11,680,15.9,4.6,7.9,503.9,Blue,5/4/2016
+Alienware,Intel Core i5,4,1589,13.1,3.9,9.8,1792.03,Rose Gold,8/7/2018
+XPS,AMD Ryzen 5,18,1045,15.7,5.8,10.8,2391.98,Silver,9/20/2015
+XPS,Intel Core i5,17,566,15.4,3.4,9.3,2023.68,Blue,4/13/2020
+Alienware,AMD Ryzen 5,21,270,14.3,5.0,9.9,2769.31,Blue,6/12/2016
