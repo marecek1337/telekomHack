@@ -32,6 +32,7 @@ def save_tree_structure_to_file(root_folder, output_file):
 counter = 0
 
 def get_path(u_input):
+    global counter
     counter += 1
     # get tree structure
     tree = get_tree_structure(f"{os.getcwd()}/data")
@@ -54,13 +55,14 @@ def get_path(u_input):
 def execute(u_input):
     # u_input = input("> ")
     # path to get file from
-    if path :
-        path ="data/" + get_path(u_input)
-    else:
+    path ="data/" + get_path(u_input)
+
+    if not path:
         print("File with similar name not found")
 
     # plot graph using specified file
     from generate_graph import generate_graphs
     generate_graphs(path, u_input)
 
-# potreboval by som data ohladom poctu ludi co zomreli pocas covidu
+execute('potreboval by som data ohladom poctu ludi co zomreli pocas covidu')
+
