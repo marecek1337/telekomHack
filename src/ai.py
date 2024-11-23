@@ -1,15 +1,6 @@
 from openai import OpenAI
 client = OpenAI()
 
-# def get_key():
-#     try:
-#         with open("config.json", 'r') as file:
-#             config_data = json.load(file)
-#             return config_data.get("key")
-#     except:
-#         print("openai.py -> get_key: error opening/reading the file")
-
-
 def ask(str, file_path=None):
     '''
     ask gpt a question
@@ -32,8 +23,3 @@ def ask(str, file_path=None):
         ]
     )
     return completion.choices[0].message.content
-
-
-
-
-# ask(input("Ask smth: "))
