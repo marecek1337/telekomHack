@@ -1,5 +1,3 @@
-<!-- src/components/SearchPage.vue -->
-
 <template>
   <div class="container">
     <img alt="Logo" src="@/assets/logo.png" class="logo" />
@@ -61,7 +59,7 @@ export default {
   name: 'SearchPage',
   data() {
     return {
-      query: '',
+      query: '', // Uchováva text z inputu
       files: [],
       showSettings: false,
       showDownloadModal: false,
@@ -76,12 +74,16 @@ export default {
   methods: {
     async onSearch() {
       try {
-        // Odošleme GET požiadavku na 'http://localhost/current-date/'
-        
-        //const response = await axios.get('http://localhost:8000/current-date/');
-        //onst data = response.data;
+        if (this.query) {
+          // Uložíme query do localStorage
+          localStorage.setItem('query', this.query);
+          console.log('Query uložené do localStorage:', this.query);
+        } else {
+          alert('Prosím, zadajte query do inputu.');
+          return;
+        }
 
-        // Prenesieme dáta do ReportPage cez router query parametre
+        // Presmerovanie na /loading
         this.$router.push({ path: '/loading' });
       } catch (error) {
         console.error('Chyba pri načítaní dát:', error);
@@ -93,7 +95,6 @@ export default {
     onFileChange(event) {
       this.files = Array.from(event.target.files);
       console.log('Súbory importované:', this.files);
-      // Tu môžete pridať logiku na spracovanie importovaných súborov
     },
     closeModal() {
       this.showSettings = false;
@@ -107,16 +108,15 @@ export default {
     },
     async downloadFile() {
       try {
-
-        const response = await axios.post('http://localhost:8000/download-file/',
-          { url: this.fileUrl },
-        );
+        const response = await axios.post('http://localhost:8000/download-file/', {
+          url: this.fileUrl,
+        });
         console.log(response.data.message);
       } catch (error) {
         console.error('Error downloading file:', error);
       }
       this.closeDownloadModal();
-  }
+    },
   },
 };
 </script>
