@@ -349,7 +349,6 @@ def download_file(request):
 
             context = ssl._create_unverified_context()
 
-            url = "https://data.montgomerycountymd.gov/api/views/mmzv-x632/rows.csv?accessType=DOWNLOAD"
             response = urlopen(url, context=context)
             # Get the Content-Disposition header
             content_disposition = response.getheader('Content-Disposition')
@@ -366,6 +365,7 @@ def download_file(request):
             save_path = os.path.join("../data/Downloads/")
             os.makedirs(save_path, exist_ok=True)
             file_name = os.path.join(save_path, filename)
+            print(file_name)
 
             # Download the file
             response = requests.get(url)

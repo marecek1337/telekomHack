@@ -11,7 +11,7 @@
       <button @click="showSettings = true" class="settings-button">
         Search Settings
       </button>
-      <button @click="showDownloadModal = true" class="settings-button">Download File</button>
+      <button @click="openDownloadModal" class="settings-button">Download File</button>
     </div>
     <input
       type="file"
@@ -35,21 +35,26 @@
         </form>
       </div>
     </div>
-    <div v-if="showDownloadModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" @click.self="closeDownloadModal">
-      <div class="bg-white p-8 rounded shadow-lg w-11/12 max-w-lg">
-        <h2 class="text-2xl mb-4">Import file</h2>
-        <form @submit.prevent="downloadFile">
-          <input
-            type="text"
-            v-model="fileUrl"
-            placeholder="Enter File URL"
-            class="border border-gray-300 rounded-lg p-2 w-full mb-4"
-          />
-          <button type="submit" class="bg-blue-500 text-white rounded p-2">Download</button>
-        </form>
-      </div>
+    <div v-if="showDownloadModal" class="bg-white p-8 rounded shadow-lg w-11/12 max-w-lg">
+    <h2 class="text-2xl mb-4">Import file</h2>
+    <div v-if="!isDownloading">
+      <form @submit.prevent="downloadFile">
+        <input
+          type="text"
+          v-model="fileUrl"
+          placeholder="Enter File URL"
+          class="border border-gray-300 rounded-lg p-2 w-full mb-4"
+        />
+        <button type="submit" class="bg-blue-500 text-white rounded p-2">
+          Download
+        </button>
+      </form>
+    </div>
+    <div v-else class="text-center text-gray-700">
+      <p>{{ downloadStatus }}</p>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -61,6 +66,8 @@ export default {
     return {
       query: '', // Uchováva text z inputu
       files: [],
+      downloadStatus: 'Downloading file...',
+      isDownloading: false,
       showSettings: false,
       showDownloadModal: false,
       fileUrl: '',
@@ -118,7 +125,13 @@ export default {
     closeDownloadModal() {
       this.showDownloadModal = false;
     },
+    openDownloadModal() {
+      this.isDownloading = false;
+      this.downloadStatus = 'Downloading file...';
+      this.showDownloadModal = true;
+    },
     async downloadFile() {
+      this.isDownloading = true;
       try {
         const response = await axios.post('http://localhost:8000/download-file/', {
           url: this.fileUrl,
@@ -127,7 +140,11 @@ export default {
       } catch (error) {
         console.error('Error downloading file:', error);
       }
-      this.closeDownloadModal();
+      this.downloadStatus = 'File imported successfully!';
+      setTimeout(() => {
+
+          this.closeDownloadModal(); // Close modal after a brief delay
+        }, 2000);
     },
   },
 };
