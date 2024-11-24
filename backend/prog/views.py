@@ -1,6 +1,6 @@
 import ssl
 from urllib.request import urlopen
-
+from django.http import HttpResponse
 from django.http import JsonResponse
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
@@ -139,7 +139,7 @@ def process_request(u_input):
                 """
         # 5. Generovanie kódu na vykreslenie grafu
         graph_prompt = (
-            f"Generate a JavaScript code to plot graphs using this dataset:\n\n{data_preview}\n\n"
+            f"Generate a JavaScript code to plot graphs using this dataset alter data a bit if they are boring or doesnt make sence:\n\n{data_preview}\n\n"
             f"Here is the user query: {u_input}. "
             f"Ensure to return ONLY JavaScript code, without any explanation or comments and without dependencies."
             f"Here is the example that i excpect: \n\n{chart_code}"
@@ -173,61 +173,58 @@ def process_request(u_input):
 import pandas as pd
 import os
 
-def file_description():
-    global path_to_file
-    # path_to_file = "/home/istvan/Documents/Hackaton/telekomHack/data/people/time_series_covid19_deaths_global.csv"
+def file_description(user_input):
+    """
+    Načíta popis súboru na základe dynamicky získanej cesty k súboru.
+    """
+    try:
+        # Zavolaj process_request na získanie cesty k súboru
+        process_request(user_input)
 
-    # Load the CSV file
-    if not os.path.exists(path_to_file):
-        print(f"File {path_to_file} does not exist.")
-        return
+        # Skontroluj, či bola cesta k súboru úspešne nastavená
+        global path_to_file
+        if not path_to_file:
+            print("File path could not be determined.")
+            return "File path could not be determined."
 
-    df = pd.read_csv(path_to_file)
-    
-    # Convert the DataFrame to a string representation
-    data_string = df.to_string(index=False)
-    
-    # Estimate token count (1 token ≈ 4 characters in English text)
-    max_chars = 128000 * 3 # Approximate maximum characters for 128,000 tokens
-    truncated_data = data_string[:max_chars]
+        # Načítanie CSV súboru
+        full_path = os.path.join(os.getcwd(), "../data", path_to_file)
+        if not os.path.exists(full_path):
+            print(f"File {full_path} does not exist.")
+            return "File could not be found at the determined path."
 
-    prompt = (
-        f"Give me a comprehensive text review of this file's contents. "
-        f"Be sure to return only the review."
-        f"Here is the data:\n\n{truncated_data}"
-    )
-    print("prompt generated")
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[
-            {"role": "system", "content": "You are a data review assistant."},
-            {"role": "user", "content": prompt},
-        ],
-    )
-    
-    print(response.choices[0].message.content)
-    return response.choices[0].message.content
-file_description()
+        print(f"Loading file: {full_path}")
+        df = pd.read_csv(full_path)
+        print("File loaded successfully.")
 
-# def path_description():
-#     global path_to_file
-#     global tree
+        # Konvertovanie dát na string
+        data_string = df.to_string(index=False)
+        max_chars = 128000 * 3  # Limit na maximálny počet znakov
+        truncated_data = data_string[:max_chars]
 
-#     prompt = (
-#         f"Give me a shor text review of this . "
-#         f"Be sure to return only the review."
-#         f"Here is the data:\n\n{truncated_data}"
-#     )
-    
-#     print("prompt generated")
-#     response = client.chat.completions.create(
-#         model="gpt-4o",
-#         messages=[
-#             {"role": "system", "content": "You are a data review assistant."},
-#             {"role": "user", "content": prompt},
-#         ],
-#     )
-    
+        # Generovanie promptu
+        prompt = (
+            f"Summarize the following data briefly and clearly without any formatting. "
+            f"Keep the summary concise and factual. "
+            f"Here is the data:\n\n{truncated_data}"
+        )
+        print("Prompt generated.")
+
+        # Odoslanie na OpenAI API
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "You are a data summarization assistant."},
+                {"role": "user", "content": prompt},
+            ],
+        )
+        print("OpenAI response received.")
+        return response.choices[0].message.content
+
+    except Exception as e:
+        print(f"Error in file_description: {str(e)}")
+        return None
+
 
 
 def current_date(request):
@@ -248,88 +245,75 @@ def current_date(request):
 @csrf_exempt
 def get_info(request):
     """
-    Vracia jednoduchý text ako jednu položku v JSON formáte.
+    Vracia výstup z funkcie file_description ako JSON odpoveď.
     """
-    if request.method == 'GET':
-        # Jednoduchý text ako jedna položka JSON
-        info = {
-            "message": "Hello, this is your single JSON response!"
-        }
-        return JsonResponse(info)
-    else:
-        # Ak nie je požiadavka typu GET
-        return JsonResponse({'error': 'Method not allowed'}, status=405)
+    try:
+        if request.method == 'POST':
+            # Získanie query z tela POST požiadavky
+            data = json.loads(request.body)
+            user_input = data.get('query')
+        elif request.method == 'GET':
+            # Získanie query z GET parametrov
+            user_input = request.GET.get('query')
+        else:
+            return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+        # Overenie, či bola query poslaná
+        if not user_input:
+            return JsonResponse({'error': 'Query parameter is required.'}, status=400)
+
+        # Zavolanie funkcie file_description s user_input
+        description = file_description(user_input)
+
+        if not description:
+            return JsonResponse({"error": "Failed to generate file description"}, status=500)
+
+        # Skrátenie odpovede na 300 znakov a odstránenie formátovania
+        short_description = re.sub(r'\s+', ' ', description.strip())[:300]
+
+        # Vrátenie výstupu z file_description v JSON formáte
+        return JsonResponse({"message": short_description})
+    except Exception as e:
+        # Spracovanie chyby
+        return JsonResponse({"error": f"An error occurred: {str(e)}"}, status=500)
+
 
 @csrf_exempt
 def get_chart(request):
     """
-    Vracia JavaScriptový kód na vykreslenie grafu v JSON formáte.
+    Dynamicky generuje JavaScriptový kód na vykreslenie grafu a vracia ho ako čistý kód použiteľný priamo na stránke.
     """
-    if request.method == 'GET':
-        # JavaScriptový kód na graf
-        chart_code = """
-const dataset = {
-  labels: ["1/22/20", "1/23/20", "1/24/20", "1/25/20", "1/26/20", "1/27/20", "1/28/20", "1/29/20", "1/30/20", "1/31/20", "2/1/20", "2/2/20", "2/3/20", "2/4/20", "2/5/20", "2/6/20", "2/7/20", "2/8/20", "2/9/20", "2/10/20", "2/11/20", "2/12/20", "2/13/20", "2/14/20", "2/15/20", "2/16/20", "2/17/20", "2/18/20", "2/19/20", "2/20/20", "2/21/20", "2/22/20", "2/23/20", "2/24/20", "2/25/20", "2/26/20", "2/27/20", "2/28/20", "2/29/20", "3/1/20", "3/2/20", "3/3/20", "3/4/20", "3/5/20", "3/6/20", "3/7/20", "3/8/20", "3/9/20"],
-  datasets: [
-    {
-      label: "Afghanistan",
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      fill: false,
-      borderColor: "red"
-    },
-    {
-      label: "Albania",
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      fill: false,
-      borderColor: "blue"
-    },
-    {
-      label: "Algeria",
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      fill: false,
-      borderColor: "green"
-    }
-  ]
-};
+    try:
+        if request.method == 'POST':
+            # Získanie query z tela POST požiadavky
+            data = json.loads(request.body.decode('utf-8'))
+            user_input = data.get('query')
+        elif request.method == 'GET':
+            # Získanie query z GET parametrov
+            user_input = request.GET.get('query')
+        else:
+            return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-const ctx = document.getElementById("myChart").getContext("2d");
-const myChart = new Chart(ctx, {
-  type: "line",
-  data: dataset,
-  options: {
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: "COVID-19 Deaths"
-      }
-    },
-    scales: {
-      x: {
-        display: true,
-        title: {
-          display: true,
-          text: "Date"
-        }
-      },
-      y: {
-        display: true,
-        title: {
-          display: true,
-          text: "Deaths"
-        }
-      }
-    }
-  }
-});
+        # Overenie, či bola query poslaná
+        if not user_input:
+            return JsonResponse({'error': 'Query parameter is required.'}, status=400)
 
-        """
+        # Zavolanie process_request s user_input
+        chart_code = process_request(user_input)
 
-        # Vrátenie JavaScriptového kódu v JSON formáte
-        return JsonResponse({"chart_code": chart_code})
-    else:
-        # Ak nie je požiadavka typu GET
-        return JsonResponse({'error': 'Method not allowed'}, status=405)
+        if not chart_code:
+            return JsonResponse({"error": "Failed to generate chart code"}, status=500)
+
+        # Odstránenie prebytočných znakov, ak je to potrebné
+        clean_chart_code = chart_code.strip()
+
+        # Vrátenie JavaScriptového kódu v odpovedi
+        return HttpResponse(clean_chart_code, content_type="application/javascript")
+    except Exception as e:
+        # Spracovanie chyby
+        return JsonResponse({"error": f"An error occurred: {str(e)}"}, status=500)
+
+
 
 @csrf_exempt
 def get_summary(request):
@@ -401,3 +385,138 @@ def download_file(request):
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+
+@csrf_exempt
+def validate_query(request):
+    """
+    Overí, či query dáva zmysel na základe pevne definovanej stromovej štruktúry a je obsahovo blízko téme.
+    """
+    try:
+        if request.method == 'POST':
+            data = json.loads(request.body.decode('utf-8'))
+            user_query = data.get('query')
+        elif request.method == 'GET':
+            user_query = request.GET.get('query')
+        else:
+            return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+        if not user_query:
+            return JsonResponse({'error': 'Query parameter is required.'}, status=400)
+
+        # Pevne definovaná stromová štruktúra
+        tree_structure = """
+        .
+        ├── T-Systems
+        │   ├── hardware
+        │   │   ├── memory.csv
+        │   │   ├── peripherals.csv
+        │   │   ├── processors.csv
+        │   │   └── storage.csv
+        │   ├── hr
+        │   │   ├── benefits.csv
+        │   │   ├── payroll.csv
+        │   │   └── recruitment.csv
+        │   ├── management
+        │   │   ├── meetings.csv
+        │   │   ├── policies.csv
+        │   │   └── reports.csv
+        │   ├── notebooks
+        │   │   ├── dell.csv
+        │   │   ├── hp.csv
+        │   │   └── lenovo.csv
+        │   ├── pcs
+        │   │   ├── desktop
+        │   │   │   ├── dell.csv
+        │   │   │   └── hp.csv
+        │   │   └── laptops
+        │   │       ├── macbook.csv
+        │   │       └── surface.csv
+        │   ├── people
+        │   │   ├── contractors
+        │   │   │   ├── it.csv
+        │   │   │   └── marketing.csv
+        │   │   └── employees
+        │   │       ├── engineering.csv
+        │   │       ├── hr.csv
+        │   │       └── sales.csv
+        │   ├── projects
+        │   │   ├── active.csv
+        │   │   └── archived.csv
+        │   └── software
+        │       ├── applications.csv
+        │       ├── licenses.csv
+        │       └── operating_systems.csv
+        ├── abc.txt
+        └── people
+            └── time_series_covid19_deaths_global.csv
+        """
+
+        # Zoznam kľúčových slov, ktoré by mali byť v query
+        relevant_keywords = [
+            # Všeobecné pojmy
+            "T-Systems", "Telekom", "hardware", "hr", "management", "notebooks", "pcs", 
+            "people", "projects", "software", "employees", "data", "files", "folders",
+
+            # Hardvér a IT
+            "memory", "storage", "peripherals", "processors", "servers", "dell", "hp", 
+            "lenovo", "macbook", "laptops", "desktop", "computers", "equipment",
+
+            # Ľudské zdroje
+            "payroll", "benefits", "recruitment", "contractors", "employees", "engineering", 
+            "sales", "marketing", "team", "people", "departments", "workforce",
+
+            # Projekty a riadenie
+            "meetings", "policies", "reports", "tasks", "deadlines", "active", "archived", 
+            "documents", "governance", "project management", "timelines",
+
+            # Softvér
+            "applications", "licenses", "operating systems", "OS", "tools", "programs", 
+            "solutions", "digital transformation",
+
+            # COVID-19 a súvisiace dáta
+            "covid", "pandemic", "deaths", "time series", "global", "health", 
+            "statistics", "disease",
+
+            # Telekom a firemné témy
+            "telecom", "telecommunication", "T-Mobile", "networks", "services", "infrastructure", 
+            "enterprise", "customers", "broadband", "connectivity", "solutions", 
+            "IT infrastructure",
+
+            # Ďalšie všeobecné témy
+            "analytics", "data science", "reports", "charts", "tables", "datasets", 
+            "files", "exports", "cloud", "AI", "machine learning"
+        ]
+
+
+        # Kontrola, či query obsahuje kľúčové slovo
+        if any(keyword.lower() in user_query.lower() for keyword in relevant_keywords):
+            return JsonResponse({"valid": True, "message": "The query is valid."})
+
+        # Generovanie promptu na validáciu pomocou API
+        validation_prompt = (
+            f"Based on the folder structure below, does this query make sense? "
+            f"Focus on whether the query relates to the listed topics or files. "
+            f"Respond with 'yes' if it is related, otherwise respond with 'no'. "
+            f"Query: {user_query}\n\n"
+            f"Folder Structure:\n{tree_structure}"
+        )
+
+        # Poslanie na OpenAI API
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "You are a folder structure validation assistant."},
+                {"role": "user", "content": validation_prompt},
+            ],
+        )
+
+        # Spracovanie odpovede
+        validation_response = response.choices[0].message.content.strip().lower()
+        if "yes" in validation_response:
+            return JsonResponse({"valid": True, "message": "The query is valid."})
+        else:
+            explanation = re.sub(r'\s+', ' ', validation_response)[:300]  # Skrátenie na 300 znakov
+            return JsonResponse({"valid": False, "message": explanation})
+
+    except Exception as e:
+        return JsonResponse({"error": f"An error occurred: {str(e)}"}, status=500)

@@ -8,6 +8,6 @@ urlpatterns = [
     path('get-info/', views.get_info, name='get_info'),
     path('get-chart/', views.get_chart, name='get_chart'),
     path('get-summary/', views.get_summary, name='get_summary'),
-    path('download-file/', views.download_file, name='download_file')
-
+    path('download-file/', views.download_file, name='download_file'),
+    path('validate-query/', views.validate_query, name='validate_query')
 ]
