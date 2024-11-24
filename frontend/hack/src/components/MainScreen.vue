@@ -73,22 +73,34 @@ export default {
   },
   methods: {
     async onSearch() {
-      try {
-        if (this.query) {
-          // Uložíme query do localStorage
-          localStorage.setItem('query', this.query);
-          console.log('Query uložené do localStorage:', this.query);
-        } else {
-          alert('Prosím, zadajte query do inputu.');
-          return;
-        }
+  try {
+    if (this.query) {
+      // Uložíme query do localStorage
+      localStorage.setItem('query', this.query);
+      console.log('Query uložené do localStorage:', this.query);
 
-        // Presmerovanie na /loading
+      // Zavoláme endpoint /validate-query/
+      const response = await axios.post('http://localhost:8000/validate-query/', {
+        query: this.query,
+      });
+
+      // Spracovanie odpovede
+      if (response.data.valid) {
+        console.log('Query validné. Presmerovanie na /loading.');
         this.$router.push({ path: '/loading' });
-      } catch (error) {
-        console.error('Chyba pri načítaní dát:', error);
+      } else {
+        console.log('Query nevalidné. Presmerovanie na /error.');
+        this.$router.push({ path: '/error' });
       }
-    },
+    } else {
+      alert('Prosím, zadajte query do inputu.');
+    }
+  } catch (error) {
+    console.error('Chyba pri validácii query:', error);
+    this.$router.push({ path: '/error' }); // Presmerovanie na /error pri chybe
+  }
+},
+
     onImportData() {
       this.$refs.fileInput.click();
     },
