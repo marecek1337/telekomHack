@@ -1,3 +1,5 @@
+  <!-- src/components/ReportPage.vue -->
+
 <template>
   <div class="report-page">
     <!-- Horný panel -->

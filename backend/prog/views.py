@@ -4,21 +4,26 @@ from urllib.request import urlopen
 from django.http import JsonResponse
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from django.contrib.auth.models import User
+from rest_framework import status
 import json
 import os
 import re
 import subprocess
 import sys
 import pandas as pd
-from openai import OpenAI
+# from openai import OpenAI
+# import openai
 
 
 
-api_key = ""
-client = OpenAI(api_key=api_key)
+# api_key = ""
+# client = OpenAI(api_key=api_key)
 
-path_to_file = ""
-tree = []
+# path_to_file = ""
+# tree = []
 
 def process_request(u_input):
     """
@@ -169,45 +174,58 @@ def process_request(u_input):
         print(f"Error: {str(e)}")
         return None
 
+@api_view(['POST'])
+def register_user(request):
+    """
+    API endpoint to register a new user.
+    """
+    username = request.data.get('username')
+    password = request.data.get('password')
+    email = request.data.get('email', '')
 
-import pandas as pd
-import os
+    # Check if the username already exists
+    if User.objects.filter(username=username).exists():
+        return Response({'error': 'Username already exists'}, status=status.HTTP_400_BAD_REQUEST)
 
-def file_description():
-    global path_to_file
-    # path_to_file = "/home/istvan/Documents/Hackaton/telekomHack/data/people/time_series_covid19_deaths_global.csv"
+    # Create the user and save to the database
+    user = User.objects.create_user(username=username, password=password, email=email)
+    return Response({'message': 'User created successfully'}, status=status.HTTP_201_CREATED)
 
-    # Load the CSV file
-    if not os.path.exists(path_to_file):
-        print(f"File {path_to_file} does not exist.")
-        return
+# def file_description():
+#     global path_to_file
+#     # path_to_file = "/home/istvan/Documents/Hackaton/telekomHack/data/people/time_series_covid19_deaths_global.csv"
 
-    df = pd.read_csv(path_to_file)
+#     # Load the CSV file
+#     if not os.path.exists(path_to_file):
+#         print(f"File {path_to_file} does not exist.")
+#         return
+
+#     df = pd.read_csv(path_to_file)
     
-    # Convert the DataFrame to a string representation
-    data_string = df.to_string(index=False)
+#     # Convert the DataFrame to a string representation
+#     data_string = df.to_string(index=False)
     
-    # Estimate token count (1 token ≈ 4 characters in English text)
-    max_chars = 128000 * 3 # Approximate maximum characters for 128,000 tokens
-    truncated_data = data_string[:max_chars]
+#     # Estimate token count (1 token ≈ 4 characters in English text)
+#     max_chars = 128000 * 3 # Approximate maximum characters for 128,000 tokens
+#     truncated_data = data_string[:max_chars]
 
-    prompt = (
-        f"Give me a comprehensive text review of this file's contents. "
-        f"Be sure to return only the review."
-        f"Here is the data:\n\n{truncated_data}"
-    )
-    print("prompt generated")
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[
-            {"role": "system", "content": "You are a data review assistant."},
-            {"role": "user", "content": prompt},
-        ],
-    )
+#     prompt = (
+#         f"Give me a comprehensive text review of this file's contents. "
+#         f"Be sure to return only the review."
+#         f"Here is the data:\n\n{truncated_data}"
+#     )
+#     print("prompt generated")
+#     response = client.chat.completions.create(
+#         model="gpt-4o",
+#         messages=[
+#             {"role": "system", "content": "You are a data review assistant."},
+#             {"role": "user", "content": prompt},
+#         ],
+#     )
     
-    print(response.choices[0].message.content)
-    return response.choices[0].message.content
-file_description()
+#     print(response.choices[0].message.content)
+#     return response.choices[0].message.content
+# file_description()
 
 # def path_description():
 #     global path_to_file
@@ -245,91 +263,13 @@ def current_date(request):
         # If the request is not a GET, return a 405 Method Not Allowed error
         return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-@csrf_exempt
-def get_info(request):
-    """
-    Vracia jednoduchý text ako jednu položku v JSON formáte.
-    """
-    if request.method == 'GET':
-        # Jednoduchý text ako jedna položka JSON
-        info = {
-            "message": "Hello, this is your single JSON response!"
-        }
-        return JsonResponse(info)
-    else:
-        # Ak nie je požiadavka typu GET
-        return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-@csrf_exempt
-def get_chart(request):
-    """
-    Vracia JavaScriptový kód na vykreslenie grafu v JSON formáte.
-    """
-    if request.method == 'GET':
-        # JavaScriptový kód na graf
-        chart_code = """
-const dataset = {
-  labels: ["1/22/20", "1/23/20", "1/24/20", "1/25/20", "1/26/20", "1/27/20", "1/28/20", "1/29/20", "1/30/20", "1/31/20", "2/1/20", "2/2/20", "2/3/20", "2/4/20", "2/5/20", "2/6/20", "2/7/20", "2/8/20", "2/9/20", "2/10/20", "2/11/20", "2/12/20", "2/13/20", "2/14/20", "2/15/20", "2/16/20", "2/17/20", "2/18/20", "2/19/20", "2/20/20", "2/21/20", "2/22/20", "2/23/20", "2/24/20", "2/25/20", "2/26/20", "2/27/20", "2/28/20", "2/29/20", "3/1/20", "3/2/20", "3/3/20", "3/4/20", "3/5/20", "3/6/20", "3/7/20", "3/8/20", "3/9/20"],
-  datasets: [
-    {
-      label: "Afghanistan",
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      fill: false,
-      borderColor: "red"
-    },
-    {
-      label: "Albania",
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      fill: false,
-      borderColor: "blue"
-    },
-    {
-      label: "Algeria",
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      fill: false,
-      borderColor: "green"
-    }
-  ]
-};
-
-const ctx = document.getElementById("myChart").getContext("2d");
-const myChart = new Chart(ctx, {
-  type: "line",
-  data: dataset,
-  options: {
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: "COVID-19 Deaths"
-      }
-    },
-    scales: {
-      x: {
-        display: true,
-        title: {
-          display: true,
-          text: "Date"
-        }
-      },
-      y: {
-        display: true,
-        title: {
-          display: true,
-          text: "Deaths"
-        }
-      }
-    }
-  }
-});
-
-        """
-
-        # Vrátenie JavaScriptového kódu v JSON formáte
-        return JsonResponse({"chart_code": chart_code})
-    else:
-        # Ak nie je požiadavka typu GET
-        return JsonResponse({'error': 'Method not allowed'}, status=405)
+"""
+{
+    "name": "John Doe",
+    "mail": "john.doe@example.com"
+}
+"""
 
 @csrf_exempt
 def get_summary(request):
@@ -345,12 +285,6 @@ def get_summary(request):
     else:
         # Ak nie je požiadavka typu GET
         return JsonResponse({'error': 'Method not allowed'}, status=405)
-
-import requests
-import os
-import json
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt
