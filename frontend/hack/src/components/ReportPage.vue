@@ -1,3 +1,48 @@
+<template>
+  <div class="report-page">
+    <!-- Horný panel -->
+    <div class="top-bar">
+      <div class="top-bar-right">
+        <button @click="exportPageAsHTML">Export</button>
+      </div>
+    </div>
+
+    <!-- Nadpis a vstupné pole -->
+    <div class="prompt-section">
+      <h3>User query:</h3> <h2>{{ query }}</h2>
+      <input
+        type="text"
+        v-model="a"
+        placeholder="Zadajte nové query..."
+        @change="handleQueryChange"
+      />
+    </div>
+
+    <!-- Hlavný obsah -->
+    <div class="content">
+      <!-- Ľavý panel -->
+      <div class="left-panel">
+        <h2>Text informations</h2>
+        <div v-if="loadingInfo">
+          <img src="@/assets/loading.gif" alt="Načítavam informácie..." />
+        </div>
+        <p v-else>{{ infoContent }}</p>
+      </div>
+
+      <!-- Pravý panel -->
+      <div class="right-panel">
+        <h2>Generated chart</h2>
+        <div v-if="loadingChart">
+          <img src="@/assets/loading.gif" alt="Načítavam graf..." />
+        </div>
+        <div v-else>
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
 import axios from "axios";
 import { Chart, registerables } from "chart.js";
@@ -8,10 +53,11 @@ export default {
   name: "ReportPage",
   data() {
     return {
-      infoContent: "", // Na dynamické načítanie informácií z API
-      loadingChart: true, // Stav načítavania grafu
-      chartInstance: null, // Ukladá inštanciu grafu Chart.js
-      query: "", // Načítané query z localStorage alebo manuálne zadanie
+      infoContent: "",
+      loadingChart: true,
+      loadingInfo: true, // Stav načítania informácií
+      chartInstance: null,
+      query: "",
     };
   },
   methods: {
@@ -24,7 +70,7 @@ export default {
         this.query = storedQuery;
         this.log(`Načítané query z localStorage: ${this.query}`);
       } else {
-        this.query = ""; // Ak nie je query, pole zostane prázdne
+        this.query = "";
         this.log("Nebolo nájdené žiadne query v localStorage.");
       }
     },
@@ -40,18 +86,20 @@ export default {
         return;
       }
 
+      this.loadingInfo = true;
       this.log(`Začiatok volania API pre informácie s query: ${this.query}`);
 
       axios
-        .post("http://localhost:8000/get-info/", { query: this.query }) // API endpoint pre informácie
+        .post("http://localhost:8000/get-info/", { query: this.query })
         .then((response) => {
           this.infoContent = response.data.message;
           this.log("Úspešné načítanie informácií.");
+          this.loadingInfo = false; // Skončilo načítanie informácií
         })
         .catch((error) => {
           console.error("Chyba pri načítaní informácií:", error);
           this.infoContent = "Nepodarilo sa načítať informácie.";
-          this.log("Chyba pri načítaní informácií.");
+          this.loadingInfo = false; // Skončilo načítanie, aj keď s chybou
         });
     },
     renderChart() {
@@ -64,7 +112,7 @@ export default {
       this.log(`Začiatok volania API pre graf s query: ${this.query}`);
 
       axios
-        .post("http://localhost:8000/get-chart/", { query: this.query }) // API endpoint pre graf
+        .post("http://localhost:8000/get-chart/", { query: this.query })
         .then((response) => {
           const chartCode = response.data;
           this.log("Získaný kód pre graf:");
@@ -92,13 +140,11 @@ export default {
               this.log("Úspešné načítanie a vykreslenie grafu.");
             } catch (error) {
               console.error("Chyba pri vykresľovaní grafu:", error);
-              this.log("Chyba pri vykresľovaní grafu.");
             }
           });
         })
         .catch((error) => {
           console.error("Chyba pri volaní API pre graf:", error);
-          this.log("Chyba pri volaní API pre graf.");
           this.loadingChart = false;
         });
     },
@@ -125,45 +171,6 @@ export default {
 };
 </script>
 
-<template>
-  <div class="report-page">
-    <!-- Horný panel -->
-    <div class="top-bar">
-      <div class="top-bar-right">
-        <button @click="exportPageAsHTML">Export</button>
-      </div>
-    </div>
-
-    <!-- Nadpis a vstupné pole -->
-    <div class="prompt-section">
-      <h2>Zadané query: {{ query }}</h2>
-      <input
-        type="text"
-        v-model="query"
-        placeholder="Zadajte nové query..."
-        @change="handleQueryChange"
-      />
-    </div>
-
-    <!-- Hlavný obsah -->
-    <div class="content">
-      <!-- Ľavý panel -->
-      <div class="left-panel">
-        <h2>Informácie</h2>
-        <p>{{ infoContent }}</p>
-      </div>
-
-      <!-- Pravý panel -->
-      <div class="right-panel">
-        <h2>Graf</h2>
-        <div v-if="loadingChart">Načítava sa graf...</div>
-        <div v-else>
-          <canvas id="myChart"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style>
 /* Štýly */
@@ -247,6 +254,11 @@ body {
   color: rgb(219, 0, 123);
 }
 
+.left-panel h2,
+.right-panel h2 {
+  color: rgb(0, 0, 0);
+}
+
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
@@ -262,5 +274,13 @@ body {
     border-left: none;
     border-right: none;
   }
+}
+
+.left-panel img,
+.right-panel img {
+  width: 50px; /* Zmenšenie šírky */
+  height: 50px; /* Zmenšenie výšky */
+  display: block;
+  margin: 0 auto; /* Zarovnanie do stredu */
 }
 </style>
